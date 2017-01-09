@@ -1,0 +1,52 @@
+﻿<ActionBar title="Photo Injury - 3/5" style="background-color:firebrick; color:white">
+
+    <ActionItem (tap)="home()"
+                ios.systemIcon="1" ios.position="right"
+                android.systemIcon="ic_menu_home"
+                android.position="actionBar"></ActionItem>
+
+    <NavigationButton text="" tap="back()"></NavigationButton>
+                    
+
+</ActionBar>
+
+<DockLayout stretchLastChild="false" style="background-color: white;">
+
+    <StackLayout orientation="vertical" dock="top">
+
+        <GridLayout columns="*, *, *" rows="*" style="background-color:whitesmoke; height:45;">
+            <Button text="&#xf060;" row="0" col="0" (tap)="back()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+            <Button text="&#xf0f6;" row="0" col="1" (tap)="save()" style="background-color: whitesmoke;" class="font-awesome"  *ngIf="isReadOnly==false"></Button>
+            <Button text="&#xf040;" row="0" col="1" (tap)="edit()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showEditButton"></Button>
+            <Button text="&#xf13E;" row="0" col="1" (tap)="unlock()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showTakeOwnershipButton"></Button>
+            <Button text="&#xf061;" row="0" col="2" (tap)="forward()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+        </GridLayout>
+
+        <Button text="Take Picture" (tap)="takePicture()" class="submit-button"  style="height:40; padding-left:5; padding-right:5" *ngIf="isReadOnly==false"></Button>
+
+        <ListView #listView [items]="photos" (itemTap)="onItemTap($event)">
+            <template let-item="item" let-i="index">
+                <GridLayout columns="50, *" rows="*" style="padding-left:5; padding-bottom:5; padding-top:5">
+                    <Image col="0" row="0" height="50" width="50" [imageSource]="item.image.imageSource"></Image>
+                    <StackLayout col="1" row="1" style="vertical-align: middle">
+                        <label [text]="item.fileName" wrapText="true"></label>
+                    </StackLayout>
+                </GridLayout>
+            </template>
+        </ListView>
+
+    </StackLayout>
+
+</DockLayout>
+
+
+
+
+
+
+
+
+
+
+
+

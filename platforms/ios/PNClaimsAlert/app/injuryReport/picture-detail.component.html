@@ -1,0 +1,32 @@
+﻿<ActionBar title="Photo Detail" style="background-color:firebrick; color:white">
+    <ActionItem (tap)="back()" android.systemIcon="ic_menu_back" ios.position="left"></ActionItem> 
+    <NavigationButton text="" tap="back()"></NavigationButton>
+    
+</ActionBar>
+
+<ScrollView>
+
+    <StackLayout orientation="vertical" style="padding-top:10;padding-left:{{padding}}; padding-right:{{padding}}">
+     
+        <Image  [imageSource]="photo.image.imageSource"></Image>
+
+        <StackLayout orientation="vertical" style="padding-top:10">
+
+           <label text="File Name"></label>
+           <TextField [(ngModel)]="photo.fileName" *ngIf="isReadOnly==false" ></TextField>
+           <label [text]="photo.fileName" *ngIf="isReadOnly==true"></label>
+
+           <Button text="Save Changes" (tap)="save()" class="submit-button" style="background-color: green; height:40" *ngIf="isReadOnly==false"></Button>
+           <Button text="Delete" (tap)="delete()" class="submit-button" style="height:40;" *ngIf="isReadOnly==false"></Button>
+      
+        </StackLayout>
+                  
+    </StackLayout>
+
+</ScrollView>
+
+
+
+
+
+

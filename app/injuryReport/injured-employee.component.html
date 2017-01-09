@@ -1,0 +1,58 @@
+﻿<ActionBar title="Injured Employee - 1/5" style="background-color:firebrick; color:white">
+ 
+</ActionBar>
+
+<ScrollView>
+
+    <StackLayout orientation="vertical">
+
+
+        <GridLayout columns="*, *, *" rows="*" style="background-color:whitesmoke; height:45;">
+            <Button text="&#xf060;" row="0" col="0" (tap)="back()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+            <Button text="&#xf0f6;" row="0" col="1" (tap)="save()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="isReadOnly==false"></Button>
+            <Button text="&#xf040;" row="0" col="1" (tap)="edit()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showEditButton"></Button>
+            <Button text="&#xf13E;" row="0" col="1" (tap)="unlock()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showTakeOwnershipButton"></Button>
+            <Button text="&#xf061;" row="0" col="2" (tap)="forward()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+        </GridLayout>
+
+        <StackLayout orientation="vertical" style="padding-top:10; padding-left:{{padding}}; padding-right:{{padding}}">
+
+            <label text="Injured Employee" style="font: bold; padding-bottom: 10;"></label>
+
+            <GridLayout columns="*, 50" rows="*">
+                <TextField row="0" col="0" [(ngModel)]="injuredEmployeeName" editable="false"></TextField>
+                <Button text="&#xf002;" row="0" col="1" (tap)="searchForEmployee()" style="background-color:white" class="font-awesome"  *ngIf="isReadOnly==false"></Button>
+            </GridLayout>
+
+            <label text="Date of Birth" style="font: bold; padding-bottom: 10;"></label>
+
+            <GridLayout columns="*, 50" rows="*">
+                <TextField keyboardType="datetime" row="0" col="0" [text]="dateOfBirth" editable="false"></TextField>
+            </GridLayout>
+
+            <label text="Date of Incident" style="font:bold; padding-bottom: 10;"></label>
+
+            <GridLayout columns="*, 50" rows="*">
+                <TextField keyboardType="datetime" row="0", col="0"[(ngModel)]="dateOfIncident" editable="false"></TextField>
+                <Button text="&#xf073;" row="0" col="1" (tap)="toggleDatePicker()" style="background-color: white;" class="font-awesome"  *ngIf="isReadOnly==false"></Button>
+            </GridLayout>   
+
+            <GridLayout columns="*, 50" rows="*">
+                <StackLayout col="0" row="0" style="height:{{datePickerHeight}};border-width:1; border-top-width:0; border-color: #6E595C;">
+                    <DatePicker #dp verticalAlignment="center" (propertyChange)="dateChanged()" horizontalAlignment="center"></DatePicker>                
+                </StackLayout>
+            </GridLayout>     
+
+            <StackLayout>
+                <ActivityIndicator busy="{{isBusy}}"></ActivityIndicator>
+            </StackLayout>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ScrollView>
+
+
+
+

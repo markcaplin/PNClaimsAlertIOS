@@ -1,0 +1,45 @@
+﻿
+
+<ActionBar title="PN ClaimsAlert">
+    <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="center">     
+        <Image src="~/images/PNClaimsAlertLogoSmall.png"></Image>
+    </StackLayout>
+</ActionBar>
+
+<ScrowView>
+   
+    <StackLayout orientation="vertical" style="padding-top:10; margin-left: 5; margin-right: 5">
+
+        <StackLayout style="padding-top:20; padding-left:{{padding}}; padding-right:{{padding}}">
+
+            <Label text="Login ID" 
+                    style="padding-bottom: 10; font: bold; ">
+            </Label>
+
+            <TextField keyboardType="email"
+                        returnKeyType="next"                        
+                        [(ngModel)]="emailAddress"
+                        autocorrect="false" 
+                        autocapitalizationType="none" >
+            </TextField>
+        
+            <Label text="Password" 
+                    style="padding-bottom:10; font: bold">
+            </Label>
+
+            <TextField #passwordElement 
+                secure="true" 
+                returnKeyType="done"
+                (returnPress)="login()"
+                [(ngModel)]="password">
+            </TextField>
+        
+            <Button text="Sign In" (tap)="login()"  class="submit-button" ></Button>
+ 
+        </StackLayout>
+     
+        <Placeholder class="coverImage"></Placeholder>
+
+    </StackLayout>
+
+</ScrowView>

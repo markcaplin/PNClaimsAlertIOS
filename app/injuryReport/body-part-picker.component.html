@@ -1,0 +1,320 @@
+﻿<ActionBar title="Bodily Injury - 2/5" style="background-color:firebrick; color:white">
+
+    <ActionItem (tap)="home()"
+                ios.systemIcon="1" ios.position="right"
+                android.systemIcon="ic_menu_home"
+                android.position="actionBar"></ActionItem>
+                
+</ActionBar>
+
+<DockLayout stretchLastChild="false">
+
+    <StackLayout dock="top" orientation="vertical">
+
+        <GridLayout columns="*, *, *" rows="*" style="background-color: whitesmoke; height:45;">
+            <Button text="&#xf060;" row="0" col="0" (tap)="back()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+            <Button text="&#xf0f6;" row="0" col="1" (tap)="save()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="isReadOnly==false"></Button>
+            <Button text="&#xf040;" row="0" col="1" (tap)="edit()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showEditButton"></Button>
+            <Button text="&#xf13E;" row="0" col="1" (tap)="unlock()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showTakeOwnershipButton"></Button>
+            <Button text="&#xf061;" row="0" col="2" (tap)="forward()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+        </GridLayout>
+
+        <GridLayout columns="*" rows="*" style="height:45">
+            <SegmentedBar col="0" row="0" (selectedIndexChanged)="selectedMenuItem($event,'')" selectedBackgroundColor="#B76769"
+                          [items]="[{title: 'Front'}, {title: 'Back'}]">
+            </SegmentedBar>
+        </GridLayout>
+
+        <label style="text-align:center; padding-bottom: 2; padding-top: 5; font: bold;" text="Injured Areas - Tap on area to select/deselect"></label>
+        <label style="text-align:center; padding: 2" [text]="injuredAreas" textWrap="true"></label>
+           
+    </StackLayout>
+
+    <ScrollView dock="bottom" style="height:{{height}}"  (pinch)="onPinch($event)">
+   
+        <StackLayout orientation="vertical">
+
+             <StackLayout style="text-align:center;padding-left:100; padding-right:100; padding-top:10">
+                <ActivityIndicator busy="{{isBusy}}"></ActivityIndicator>
+            </StackLayout>
+
+            <GridLayout columns="*,*,*,*,*,*,*,*" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" horizontalAlignment="center" *ngIf="showFrontBody">
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="0" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-0-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="1" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-1-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="1" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-1-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="1" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-1-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="1" (tap)="frontImagePressed($event,'Head')" src="~/images/bodyparts/front/front-1-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="1" (tap)="frontImagePressed($event,'Head')" src="~/images/bodyparts/front/front-1-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="1" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-1-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="1" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-1-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="1" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-1-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="2" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-2-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="2" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-2-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="2" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-2-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="2" (tap)="frontImagePressed($event,'Head')" src="~/images/bodyparts/front/front-2-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="2" (tap)="frontImagePressed($event,'Head')" src="~/images/bodyparts/front/front-2-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="2" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-2-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="2" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-2-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="2" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-2-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="3" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-3-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="3" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-3-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="3" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-3-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="3" (tap)="frontImagePressed($event,'Chest')" src="~/images/bodyparts/front/front-3-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="3" (tap)="frontImagePressed($event,'Chest')" src="~/images/bodyparts/front/front-3-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="3" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-3-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="3" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-3-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="3" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-3-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="4" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-4-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="4" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-4-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="4" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-4-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="4" (tap)="frontImagePressed($event,'Chest')" src="~/images/bodyparts/front/front-4-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="4" (tap)="frontImagePressed($event,'Chest')" src="~/images/bodyparts/front/front-4-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="4" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-4-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="4" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-4-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="4" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-4-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="5" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-5-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="5" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-5-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="5" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-5-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="5" (tap)="frontImagePressed($event,'Torso')" src="~/images/bodyparts/front/front-5-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="5" (tap)="frontImagePressed($event,'Torso')" src="~/images/bodyparts/front/front-5-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="5" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-5-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="5" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-5-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="5" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-5-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="6" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-6-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="6" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-6-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="6" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-6-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="6" (tap)="frontImagePressed($event,'Torso')" src="~/images/bodyparts/front/front-6-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="6" (tap)="frontImagePressed($event,'Torso')" src="~/images/bodyparts/front/front-6-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="6" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-6-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="6" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-6-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="6" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-6-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="7" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-7-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="7" (tap)="frontImagePressed($event,'Right Arm')" src="~/images/bodyparts/front/front-7-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="7" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-7-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="7" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-7-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="7" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-7-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="7" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-7-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="7" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-7-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="7" (tap)="frontImagePressed($event,'Left Arm')" src="~/images/bodyparts/front/front-7-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="8" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-8-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="8" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-8-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="8" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-8-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="8" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-8-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="8" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-8-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="8" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-8-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="8" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-8-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="8" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-8-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="9" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-9-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="9" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-9-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="9" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-9-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="9" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-9-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="9" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-9-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="9" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-9-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="9" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-9-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="9" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-9-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="10" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-10-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="10" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-10-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="10" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-10-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="10" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-10-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="10" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-10-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="10" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-10-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="10" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-10-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="10" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-10-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="11" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-11-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="11" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-11-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="11" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-11-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="11" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-11-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="11" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-11-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="11" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-11-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="11" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-11-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="11" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-11-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="12" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-12-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="12" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-12-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="12" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-12-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="12" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-12-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="12" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-12-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="12" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-12-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="12" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-12-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="12" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-12-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="13" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-13-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="13" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-13-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="13" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-13-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="13" (tap)="frontImagePressed($event,'Right Leg')" src="~/images/bodyparts/front/front-13-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="13" (tap)="frontImagePressed($event,'Left Leg')" src="~/images/bodyparts/front/front-13-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="13" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-13-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="13" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-13-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="13" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-13-7.jpeg"></Image>
+
+                <Image [height]="frontHeight" [width]="frontWidth" col="0" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-0.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="1" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-1.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="2" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-2.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="3" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-3.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="4" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-4.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="5" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-5.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="6" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-6.jpeg"></Image>
+                <Image [height]="frontHeight" [width]="frontWidth" col="7" row="14" (tap)="frontImagePressed($event,'')" src="~/images/bodyparts/front/front-14-7.jpeg"></Image>
+
+            </GridLayout>
+
+            <GridLayout columns="*,*,*,*,*,*,*,*" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" horizontalAlignment="center" *ngIf="showBackBody">
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts/back/front-0-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="0" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-0-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="1" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-1-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="1" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-1-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="1" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-1-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="1" (tap)="backImagePressed($event,'Head')" src="~/images/bodyparts//back/back-1-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="1" (tap)="backImagePressed($event,'Head')" src="~/images/bodyparts//back/back-1-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="1" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-1-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="1" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-1-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="1" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-1-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="2" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-2-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="2" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-2-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="2" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-2-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="2" (tap)="backImagePressed($event,'Head')" src="~/images/bodyparts//back/back-2-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="2" (tap)="backImagePressed($event,'Head')" src="~/images/bodyparts//back/back-2-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="2" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-2-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="2" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-2-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="2" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-2-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="3" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-3-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="3" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-3-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="3" (tap)="backImagePressed($event,'Left Arm')" src="~/images/bodyparts//back/back-3-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="3" (tap)="backImagePressed($event,'Back')" src="~/images/bodyparts//back/back-3-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="3" (tap)="backImagePressed($event,'Back')" src="~/images/bodyparts//back/back-3-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="3" (tap)="backImagePressed($event,'Right Arm')" src="~/images/bodyparts//back/back-3-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="3" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-3-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="3" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-3-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="4" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-4-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="4" (tap)="backImagePressed($event,'Left Arm')" src="~/images/bodyparts//back/back-4-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="4" (tap)="backImagePressed($event,'Left Arm')" src="~/images/bodyparts//back/back-4-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="4" (tap)="backImagePressed($event,'Back')" src="~/images/bodyparts//back/back-4-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="4" (tap)="backImagePressed($event,'Back')" src="~/images/bodyparts//back/back-4-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="4" (tap)="backImagePressed($event,'Right Arm')" src="~/images/bodyparts//back/back-4-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="4" (tap)="backImagePressed($event,'Right Arm')" src="~/images/bodyparts//back/back-4-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="4" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-4-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="5" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-5-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="5" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-5-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="5" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-5-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="5" (tap)="backImagePressed($event,'Back')" src="~/images/bodyparts//back/back-5-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="5" (tap)="backImagePressed($event,'Back')" src="~/images/bodyparts//back/back-5-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="5" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-5-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="5" (tap)="backImagePressed($event,'Right Arm')" src="~/images/bodyparts//back/back-5-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="5" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-5-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="6" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-6-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="6" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-6-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="6" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-6-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="6" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-6-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="6" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-6-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="6" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-6-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="6" (tap)="backImagePressed($event,'Right Arm')" src="~/images/bodyparts//back/back-6-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="6" (tap)="backImagePressed($event,'Right Arm')" src="~/images/bodyparts//back/back-6-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="7" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-7-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="7" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-7-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="7" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-7-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="7" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-7-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="7" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-7-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="7" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-7-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="7" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-7-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="7" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-7-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="8" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-8-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="8" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-8-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="8" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-8-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="8" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-8-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="8" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-8-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="8" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-8-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="8" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-8-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="8" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-8-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="9" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-9-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="9" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-9-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="9" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-9-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="9" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-9-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="9" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-9-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="9" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-9-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="9" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-9-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="9" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-9-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="10" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-10-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="10" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-10-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="10" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-10-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="10" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-10-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="10" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-10-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="10" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-10-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="10" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-10-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="10" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-10-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="11" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-11-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="11" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-11-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="11" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-11-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="11" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-11-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="11" (tap)="backImagePressed($event,'Left Leg')" src="~/images/bodyparts//back/back-11-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="11" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-11-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="11" (tap)="backImagePressed($event,'Right Leg')" src="~/images/bodyparts//back/back-11-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="11" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-11-7.jpeg"></Image>
+
+                <Image [height]="backHeight" [width]="backWidth" col="0" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-0.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="1" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-1.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="2" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-2.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="3" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-3.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="4" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-4.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="5" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-5.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="6" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-6.jpeg"></Image>
+                <Image [height]="backHeight" [width]="backWidth" col="7" row="12" (tap)="backImagePressed($event,'')" src="~/images/bodyparts//back/back-12-7.jpeg"></Image>
+
+            </GridLayout>
+
+
+            <GridLayout columns="50, 60, 50" rows="*" horizontalAlignment="center">
+                <Button text="&#xf067;" row="0" col="0" (tap)="increaseZoom()" style="background-color:white" class="font-awesome"></Button>
+                <label text="Zoom" style="vertical-align: center" row="0" col="1"></label>
+                <Button text="&#xf068;" row="0" col="2" (tap)="decreaseZoom()" style="background-color:white" class="font-awesome"></Button>
+            </GridLayout>
+
+          
+        </StackLayout>
+
+    </ScrollView>
+
+</DockLayout>
+
+
+
+
+
+
+

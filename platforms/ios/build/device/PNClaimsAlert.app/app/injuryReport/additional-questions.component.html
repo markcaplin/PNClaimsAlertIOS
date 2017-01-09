@@ -1,0 +1,243 @@
+﻿<ActionBar title="Injury Information - 4/5" style="background-color:firebrick; color:white">
+
+    <ActionItem (tap)="home()"
+                ios.systemIcon="1" ios.position="right"
+                android.systemIcon="ic_menu_home"
+                android.position="actionBar"></ActionItem>
+
+ <NavigationButton text="" tap="back()"></NavigationButton>
+                  
+
+
+</ActionBar>
+
+<DockLayout stretchLastChild="false">
+
+    <StackLayout dock="top">
+
+        <GridLayout columns="*, *, *" rows="*" style="background-color: whitesmoke; height:45;">
+            <Button text="&#xf060;" row="0" col="0" (tap)="back()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+            <Button text="&#xf0f6;" row="0" col="1" (tap)="save()" style="background-color: whitesmoke;" class="font-awesome"  *ngIf="isReadOnly==false"></Button>
+            <Button text="&#xf040;" row="0" col="1" (tap)="edit()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showEditButton"></Button>
+            <Button text="&#xf13E;" row="0" col="1" (tap)="unlock()" style="background-color: whitesmoke;" class="font-awesome" *ngIf="showTakeOwnershipButton"></Button>
+            <Button text="&#xf061;" row="0" col="2" (tap)="forward()" style="background-color: whitesmoke;" class="font-awesome"></Button>
+        </GridLayout>
+
+    </StackLayout>
+
+    <ScrollView dock="bottom" style="height:{{height}}">
+
+        <StackLayout orientation="vertical" style="background-color:white">
+            
+            <StackLayout style="padding:5;" *ngIf="showErrorMessage">
+                <label wrapText="true" textWrap="true"  class="error-message" [text]="messageBox"></label>           
+            </StackLayout>
+
+            <StackLayout orientation="vertical" style="padding-bottom:20">
+
+                <GridLayout columns="15,*" rows="*">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="Type of Injury/Illness" row="0" col="1"></label>
+                </GridLayout>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <TextField row="0" col="0" [(ngModel)]="injuryReport.typeOfInjuryOrIllness" editable="false" *ngIf="isReadOnly==false"></TextField>
+                    <label [text]="injuryReport.typeOfInjuryOrIllness" style="font: bold"  wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true"></label>
+
+                    <Button text="&#xf002;" row="0" col="1" (tap)="searchForInjuryTypes()" *ngIf="isReadOnly==false" style="background-color:white" class="font-awesome"></Button>
+                </GridLayout>
+
+                <StackLayout orientation="vertical" *ngIf="showTypeOfInjury">
+
+                    <label text="Describe Other Injury"></label>
+                    <GridLayout columns="*, 50" rows="*">
+                        <TextView [(ngModel)]="injuryReport.typeOfInjury" (ngModelChange)='onModelChange()'  *ngIf="isReadOnly==false"  row="0" col="0"></TextView>
+                        <label [text]="injuryReport.typeOfInjury" style="font: bold"  wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true" ></label>
+                    </GridLayout>
+
+                </StackLayout>
+
+
+            </StackLayout>
+
+            <StackLayout orientation="vertical" style="padding-bottom:20">
+
+                <GridLayout columns="*,50" rows="*">
+
+                    <GridLayout columns="15,*" rows="*" row="0" col="0">
+                        <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                        <label text="Did the injury occur at work?" row="0" col="1"></label>
+                    </GridLayout>
+                    <label [text]="injuryOccuredAtWorkplace" row="0" col="1" style="font: bold"></label>
+                </GridLayout>
+
+                <GridLayout columns="100,100" rows="*">
+                    <Button text="YES" row="0" col="0" (tap)="injuryOccurredAtWork('Yes')"  *ngIf="isReadOnly==false" [class.selected-button]="injuryOccurredAtWorkYes"></Button>
+                    <Button text="NO" row="0" col="1" (tap)="injuryOccurredAtWork('No')"  *ngIf="isReadOnly==false" [class.selected-button]="injuryOccurredAtWorkNo"></Button>
+                </GridLayout>
+
+                <StackLayout orientation="vertical" *ngIf="showExplainInjuryLocation">
+
+                    <GridLayout columns="15,*" rows="*" row="0" col="0">
+                        <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                        <label text="Explain Injury Location" row="0" col="1"></label>
+                    </GridLayout>
+
+                    <GridLayout columns="*, 50" rows="*">
+                        <TextView [(ngModel)]="injuryReport.explanationOfInjuryLocation" style="background-color: whitesmoke" (ngModelChange)='onModelChange()'  *ngIf="isReadOnly==false"   row="0" col="0"></TextView>
+                        <label [text]="injuryReport.explanationOfInjuryLocation" style="font: bold"  wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true"></label>
+                    </GridLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout orientation="vertical" style="padding-bottom:20">
+
+                <GridLayout columns="15,*" rows="*" row="0" col="0">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="How did injury occur? (Describe the accident or illness)" textWrap="true" wrapText="true" row="0" col="1"></label>
+                </GridLayout>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <TextView [(ngModel)]="injuryReport.howDidInjuryOrIllnessOccur" style="background-color:whitesmoke" (ngModelChange)='onModelChange()' *ngIf="isReadOnly==false"  row="0" col="0"></TextView>
+                    <label [text]="injuryReport.howDidInjuryOrIllnessOccur" style="font: bold"  wrapText="true" textWrap="true" row="0" col="0"  *ngIf="isReadOnly==true" ></label>
+                </GridLayout>
+            </StackLayout>
+
+            <StackLayout orientation="vertical" style="padding-bottom:20">
+                <GridLayout columns="*,50" rows="*">
+
+                    <GridLayout columns="15,*" rows="*" row="0" col="0">
+                        <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                        <label text="Do you need medical attention?" row="0" col="1"></label>
+                    </GridLayout>
+
+                    <label [text]="needMedicalAttention" row="0" col="1" style="font: bold"></label>
+                </GridLayout>
+
+                <GridLayout columns="100,100" rows="*">
+                    <Button text="YES" row="0" col="0" (tap)="medicalAttentionNeeded('Yes')" *ngIf="isReadOnly==false" [class.selected-button]="needMedicalAttentionYes"></Button>
+                    <Button text="NO" row="0" col="1" (tap)="medicalAttentionNeeded('No')" *ngIf="isReadOnly==false" [class.selected-button]="needMedicalAttentionNo"></Button>
+                </GridLayout>
+
+                <StackLayout orientation="vertical" *ngIf="injuryReport.needMedicalAttention" style="padding-right:5; padding-bottom:10">
+                    <label text="Contact your employer for a list of approved medical providers in your location, if applicable." textWrap="true" style="font: bold"></label>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout orientation="vertical" style="padding-bottom:20">
+
+                <GridLayout columns="15,*" rows="*">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="If you've already sought treatment, where?" row="0" col="1"></label>
+                </GridLayout>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <TextView [(ngModel)]="injuryReport.treatmentDescription" style="background-color: whitesmoke;" (ngModelChange)='onModelChange()'  *ngIf="isReadOnly==false" row="0" col="0"></TextView>
+                    <label [text]="injuryReport.treatmentDescription" style="font: bold"  wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true"></label>
+                </GridLayout>
+            </StackLayout>
+
+            <StackLayout orientation="vertical" style="padding-bottom:20">
+
+                <GridLayout columns="*,50" rows="*">
+
+                    <GridLayout columns="15,*" rows="*" row="0" col="0">
+                        <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                        <label text="Do you feel that you can continue working?" textWrap="true" wrapText="true" row="0" col="1"></label>
+                    </GridLayout>
+
+                    <label [text]="canContinueWorking" row="0" col="1" style="font: bold"></label>
+
+                </GridLayout>
+
+                <GridLayout columns="100,100" rows="*">
+                    <Button text="YES" row="0" col="0" (tap)="continueWorking('Yes')" *ngIf="isReadOnly==false" [class.selected-button]="continueWorkingYes"></Button>
+                    <Button text="NO" row="0" col="1" (tap)="continueWorking('No')" *ngIf="isReadOnly==false" [class.selected-button]="continueWorkingNo"></Button>
+                </GridLayout>
+
+                <StackLayout orientation="vertical" *ngIf="showCannotContinueWorking">
+
+                    <GridLayout columns="15,*" rows="*">
+                        <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                        <label text="Why can you not continue working?" style="padding-top:10;" wrapText="true" textWrap="true" row="0" col="1"></label>
+                    </GridLayout>
+
+                    <GridLayout columns="*, 50" rows="*">
+                        <TextView [(ngModel)]="injuryReport.whyCannotContinueWorking" style="background-color: whitesmoke" (ngModelChange)='onModelChange()' *ngIf="isReadOnly==false" row="0" col="0"></TextView>
+                        <label [text]="injuryReport.whyCannotContinueWorking" style="font: bold;"  wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true"></label>
+                    </GridLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout orientation="vertical">
+
+                <label text="Injured worker phone number" style="padding-top:10;"></label>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <TextField style="background-color:whitesmoke;  padding-left: 5; height:40" row="0" col="0" [(ngModel)]="injuryReport.injuredWorkerPhoneNumber" (ngModelChange)='onModelChange()' *ngIf="isReadOnly==false"></TextField>
+                    <label [text]="injuryReport.injuredWorkerPhoneNumber" style="font: bold"  wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true"></label>                
+                </GridLayout>
+
+                <label text="Injured worker Email address" style="padding-top:10;"></label>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <TextField style="background-color: whitesmoke; padding-left:5; height:40" row="0" col="0" [(ngModel)]="injuryReport.injuredWorkerEmailAddress" (ngModelChange)='onModelChange()' *ngIf="isReadOnly==false"></TextField>
+                    <label [text]="injuryReport.injuredWorkerEmailAddress" style="font: bold" wrapText="true" textWrap="true" row="0" col="0" *ngIf="isReadOnly==true"></label>
+                </GridLayout>
+
+            </StackLayout>
+
+            <StackLayout style="padding:5;" *ngIf="showErrorMessage">
+                <label wrapText="true" textWrap="true" class="error-message" [text]="messageBox"></label>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</DockLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

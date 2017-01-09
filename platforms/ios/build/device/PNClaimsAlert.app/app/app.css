@@ -1,0 +1,66 @@
+﻿button {
+ margin-left: 2;  
+}
+
+
+.title {
+    font-size: 30;
+    margin: 20;
+}
+
+.message {
+    font-size: 20;
+    color: #284848;
+    text-align: center;
+    margin: 0 20;
+} 
+
+.submit-button {
+    background-color: firebrick;
+    color:white;
+    margin-top: 20;  
+    height: 40;
+    padding: 10;
+}
+
+TextField {
+  padding: 10;
+  font-size: 13;
+  border-width: 1;
+  border-color: #6E595C;
+}
+
+Label {
+    padding-top: 10;
+}
+
+.selected-button {
+    background-color: cornflowerblue;
+    color: black;
+    font: bold;
+}
+
+ .font-awesome {
+    font-family: "FontAwesome";
+}
+
+
+.error-message {
+    font-size: 18;
+    color: white;   
+    margin: 0;   
+    background-color: #CB1D00;
+    min-height: 50;
+    padding-left: 5;
+} 
+
+.coverImage {
+    background-image: url("~/images/main-image2.jpg");
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: cover;
+    /*opacity: .4;*/
+      
+}
+
+     

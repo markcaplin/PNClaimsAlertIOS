@@ -1,0 +1,20 @@
+﻿<ActionBar title="Incident Date" style="background-color:firebrick; color:white">  
+        <ActionItem (tap)="back()" android.systemIcon="ic_menu_back" ios.position="left"></ActionItem>
+        <ActionItem (tap)="save()" ios.systemIcon="3" android.systemIcon="ic_menu_save" ios.position="right"></ActionItem>        
+        <NavigationButton text="" tap="back()"></NavigationButton>
+  
+</ActionBar>
+
+<DockLayout stretchLastChild="false" style="background-color: white;">
+
+    <StackLayout dock="top">
+
+        <DatePicker #dp verticalAlignment="center" horizontalAlignment="center"></DatePicker>
+
+    </StackLayout>
+
+</DockLayout>
+
+
+
+

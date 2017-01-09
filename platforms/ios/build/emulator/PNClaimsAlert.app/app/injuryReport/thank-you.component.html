@@ -1,0 +1,20 @@
+﻿
+
+<ActionBar title="Confirmation" style="background-color:firebrick; color:white">
+    <ActionItem (tap)="back()" android.systemIcon="ic_menu_back" ios.position="left"></ActionItem>
+    <NavigationButton text="" tap="back()"></NavigationButton>  
+</ActionBar>
+
+<DockLayout stretchLastChild="false">
+  
+    <ScrollView dock="bottom" style="height:{{height}}">
+
+        <StackLayout orientation="vertical" style="background-color:white">
+            <StackLayout style="padding:5;">
+                <label wrapText="true" textWrap="true" [text]="messageBox"></label>
+            </StackLayout>
+        </StackLayout>
+
+    </ScrollView>
+
+</DockLayout>

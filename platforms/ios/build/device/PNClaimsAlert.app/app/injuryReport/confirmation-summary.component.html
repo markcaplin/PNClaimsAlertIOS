@@ -1,0 +1,201 @@
+﻿<ActionBar title="Summary - 5/5" style="background-color:firebrick; color:white">
+    <ActionItem (tap)="back()" android.systemIcon="ic_menu_back" ios.position="left"></ActionItem>
+    <ActionItem (tap)="home()"
+                ios.systemIcon="1" ios.position="right"
+                android.systemIcon="ic_menu_home"
+                android.position="actionBar"></ActionItem>
+
+ <NavigationButton text="" tap="back()"></NavigationButton>
+                  
+
+</ActionBar>
+
+<ScrollView style="height:{{height}}">
+
+    <StackLayout orientation="vertical" style="background-color:white">
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+
+            <GridLayout columns="15,*" rows="*">
+                <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                <label text="Type of Injury/Illness" textWrap="true" wrapText="true" row="0" col="1"></label>
+            </GridLayout>
+
+            <GridLayout columns="*, 50" rows="*">
+                <Label row="0" col="0" [text]="injuryReport.typeOfInjuryOrIllness" textWrap="true" wrapText="true" style="font: bold"></Label>
+            </GridLayout>
+
+            <StackLayout orientation="vertical" *ngIf="showTypeOfInjury">
+
+                <label text="Describe Other Injury"></label>
+                <GridLayout columns="*, 50" rows="*">
+                    <Label [text]="injuryReport.typeOfInjury" row="0" col="0" textWrap="true" wrapText="true" style="font: bold"></Label>
+                </GridLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+
+            <GridLayout columns="*,50" rows="*">
+
+                <GridLayout columns="15,*" rows="*" row="0" col="0">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="Did the injury occur at work?" row="0" col="1"></label>
+                </GridLayout>
+                <label [text]="injuryOccuredAtWorkplace" row="0" col="1" style="font: bold" textWrap="true" wrapText="true"></label>
+            </GridLayout>
+
+            <StackLayout orientation="vertical" *ngIf="showExplainInjuryLocation">
+
+                <GridLayout columns="15,*" rows="*" row="0" col="0">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="Explain Injury Location" row="0" col="1"></label>
+                </GridLayout>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <Label [text]="injuryReport.explanationOfInjuryLocation" row="0" col="0" textWrap="true" wrapText="true" style="font: bold"></Label>
+                </GridLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+
+            <GridLayout columns="15,*" rows="*" row="0" col="0">
+                <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                <label text="How did injury occur? (Describe the accident or illness)" textWrap="true" wrapText="true" row="0" col="1"></label>
+            </GridLayout>
+
+            <GridLayout columns="*, 50" rows="*">
+                <Label [text]="injuryReport.howDidInjuryOrIllnessOccur" row="0" col="0" textWrap="true" wrapText="true" style="font: bold"></Label>
+            </GridLayout>
+        </StackLayout>
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+            <GridLayout columns="*,50" rows="*">
+
+                <GridLayout columns="15,*" rows="*" row="0" col="0">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="Do you need medical attention?" row="0" col="1"></label>
+                </GridLayout>
+
+                <label [text]="needMedicalAttention" row="0" col="1" style="font: bold"></label>
+            </GridLayout>
+
+            <StackLayout orientation="vertical" *ngIf="injuryReport.needMedicalAttention" style="padding-right:5; padding-bottom:10">
+                <label text="Contact your employer for a list of approved medical providers in your location, if applicable." textWrap="true" style="font: bold"></label>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+
+            <GridLayout columns="15,*" rows="*">
+                <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                <label text="If you've already sought treatment, where?" row="0" col="1"></label>
+            </GridLayout>
+
+            <GridLayout columns="*, 50" rows="*">
+                <Label [text]="injuryReport.treatmentDescription" row="0" col="0" textWrap="true" wrapText="true" style="font: bold"></Label>
+            </GridLayout>
+        </StackLayout>
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+
+            <GridLayout columns="*,50" rows="*">
+
+                <GridLayout columns="15,*" rows="*" row="0" col="0">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="Do you feel that you can continue working?" row="0" col="1"></label>
+                </GridLayout>
+
+                <label [text]="canContinueWorking" row="0" col="1" style="font: bold" textWrap="true" wrapText="true"></label>
+
+            </GridLayout>
+
+            <StackLayout orientation="vertical" *ngIf="showCannotContinueWorking">
+
+                <GridLayout columns="15,*" rows="*">
+                    <label text="**" style="color:red; font: bold" row="0" col="0"></label>
+                    <label text="Why can you not continue working?" row="0" col="1"></label>
+                </GridLayout>
+
+                <GridLayout columns="*, 50" rows="*">
+                    <Label [text]="injuryReport.whyCannotContinueWorking" row="0" col="0" textWrap="true" wrapText="true" style="font: bold"></Label>
+                </GridLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <StackLayout orientation="vertical" style="padding-bottom:20">
+
+            <label text="Injured worker phone number"></label>
+
+            <GridLayout columns="*, 50" rows="*">
+                <label row="0" col="0" [text]="injuryReport.injuredWorkerPhoneNumber" textWrap="true" wrapText="true" style="font: bold"></label>
+            </GridLayout>
+
+        </StackLayout>
+
+        <StackLayout orientation="vertical">
+
+            <label text="Injured worker Email address"></label>
+
+            <GridLayout columns="*, 50" rows="*">
+                <Label row="0" col="0" [text]="injuryReport.injuredWorkerEmailAddress" textWrap="true" wrapText="true" style="font: bold"></Label>
+            </GridLayout>
+
+        </StackLayout>
+    
+        <StackLayout orientation="vertical">
+            <Button text="Submit to Employer" (tap)="submit()" class="submit-button" style="height:40;" *ngIf="isReadOnly==false"></Button>
+        </StackLayout>
+
+    </StackLayout>
+
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

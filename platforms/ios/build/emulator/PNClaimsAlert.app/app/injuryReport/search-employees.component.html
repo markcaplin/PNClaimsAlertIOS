@@ -1,0 +1,37 @@
+﻿<ActionBar title="Employee Search" style="background-color:firebrick; color:white">
+    <ActionItem (tap)="back()" android.systemIcon="ic_menu_back" ios.position="left"></ActionItem>
+    <NavigationButton text="" tap="back()"></NavigationButton>
+  
+</ActionBar>
+
+<DockLayout stretchLastChild="false" style="background-color: white;">
+
+
+    <StackLayout row="0" dock="top">
+
+        <SearchBar #sb (submit)="onSubmit(sb.text)"  (clear)="onClear()" ></SearchBar>
+
+        <ListView #listView [items]="employees" (loadMoreItems)="listViewLoadMoreItems()" (itemTap)="onItemTap($event)">
+            <template let-item="item" let-i="index">
+                <StackLayout style="padding-bottom:5; padding-top:5">
+                    <Label [text]='item.firstName + " " + item.lastName'></Label>
+                    <Label textWrap="true" [text]='item.emailAddress'></Label>
+                </StackLayout>
+            </template>
+        </ListView>
+
+    </StackLayout>
+
+
+    <StackLayout row="0" dock="bottom" style="height: 40; background-color:firebrick">
+        <StackLayout style="height:40; margin-left:0; vertical-align: middle">
+            <label style="font: bold; text-align:center; color: white; margin-left:0;" text="{{totalRecordsMessage}}"></label>
+        </StackLayout>
+    </StackLayout>
+
+
+</DockLayout>
+
+
+
+

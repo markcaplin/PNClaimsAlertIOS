@@ -1,0 +1,43 @@
+﻿<ActionBar title="My Injury Reports" style="background-color:firebrick; color:white">
+    <ActionItem (tap)="logout()" ios.systemIcon="1" android.systemIcon="ic_lock_lock"></ActionItem>
+    <ActionItem (tap)="new()" ios.systemIcon="4" android.systemIcon="ic_menu_add" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout rows="*">
+
+    <ListView row="0" #listView [items]="injuryReports" (itemTap)="onItemTap($event)">
+        <template let-item="item" let-i="index">
+            <StackLayout style="padding-bottom:5; padding-top:5; padding-left:{{padding}}; padding-right:{{padding}}">
+
+                <GridLayout columns="150, *" rows="*">
+                    <Label col="0" row="0" text="Status"></Label>
+                    <Label col="1" row="0" [text]="item.status"></Label>
+                </GridLayout>
+
+                <GridLayout columns="150, *" rows="*">
+                    <Label col="0" row="0" text="Date Of Incident"></Label>
+                    <Label col="1" row="0" [text]="item.dateOfIncident"></Label>
+                </GridLayout>
+
+                <GridLayout columns="150, *" rows="*">
+                    <Label col="0" row="0" text="Incident #"></Label>
+                    <Label col="1" row="0" [text]="item.referenceNumber"></Label>
+                </GridLayout>
+
+                <GridLayout columns="150, *" rows="*">
+                    <Label col="0" row="0" text="Injured Employee"></Label>
+                    <Label col="1" row="0" [text]="item.injuredUser"></Label>
+                </GridLayout>
+
+                <GridLayout columns="150, *" rows="*">
+                    <Label col="0" row="0" text="Held By"></Label>
+                    <Label col="1" row="0" [text]="item.activeUser"></Label>
+                </GridLayout>
+
+            </StackLayout>
+        </template>
+    </ListView>
+
+    <ActivityIndicator row="0" busy="{{isBusy}}"></ActivityIndicator>
+
+</GridLayout>
