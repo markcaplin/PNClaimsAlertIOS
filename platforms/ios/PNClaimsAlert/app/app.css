@@ -43,8 +43,8 @@ Label {
 }
 
 .selected-button {
-    background-color: cornflowerblue;
-    color: black;
+    background-color: green;
+    color: white;
     font: bold;
 }
 

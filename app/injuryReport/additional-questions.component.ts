@@ -56,8 +56,13 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
     public showTakeOwnershipButton: Boolean = false;
     public padding: Number;
   
-    constructor(private _sessionService: SessionService, private _routerExtensions: RouterExtensions, private _injuryReportService: InjuryReportService,
-        private _settingsService: SettingsService, private _helperService: HelperService) {
+    constructor(
+
+        private _sessionService: SessionService, 
+        private _routerExtensions: RouterExtensions, 
+        private _injuryReportService: InjuryReportService,
+        private _settingsService: SettingsService, 
+        private _helperService: HelperService) {
 
         this.padding = _settingsService.getPadding();
             
@@ -358,7 +363,7 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/confirmationsummary"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -426,7 +431,7 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/confirmationsummary"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,

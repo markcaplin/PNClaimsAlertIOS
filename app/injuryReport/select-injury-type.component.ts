@@ -41,12 +41,19 @@ export class SelectInjuryTypeComponent implements AfterViewInit {
     public isBusy: Boolean;
 
     public selectedIndex: number;
-
-    constructor(private _injuryReportService: InjuryReportService, private router: Router, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService, private _sessionService: SessionService) {
+    public padding: Number;
+    
+    constructor(
+        private _injuryReportService: InjuryReportService, 
+        private router: Router, 
+        private _routerExtensions: RouterExtensions, 
+        private _settingsService: SettingsService, 
+        private _sessionService: SessionService) {
 
         this.viewHeight = screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 90;
-
+        this.padding = this._settingsService.getPadding();
+  
     }
 
     public ngAfterViewInit(): void {

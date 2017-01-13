@@ -12,7 +12,7 @@
 
         <ListView row="0" #listView [items]="injuryTypes" (itemTap)="onItemTap($event)">
             <template let-item="item" let-i="index">
-                <StackLayout style="padding-bottom:5; padding-top:5; height: 40">
+                <StackLayout style="padding-bottom:5; padding-top:5; padding-left:{{padding}}; padding-right:{{padding}} height: 40">
                     <Label [text]='item.injuryTypeDescription' textWrap="true"></Label>                 
                 </StackLayout>
             </template>

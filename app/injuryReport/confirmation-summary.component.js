@@ -24,15 +24,25 @@ var ConfirmationSummaryComponent = (function () {
         this.showExplainInjuryLocation = false;
         this.errorMessages = [];
         this.errors = [];
+        this.bodyParts = [];
         this.isReadOnly = false;
+        this.showEditButton = false;
+        this.showTakeOwnershipButton = false;
+        this.takingOwnership = false;
         this.padding = this._settingsService.getPadding();
         this._sessionService.console("Constructor begin");
         this.isReadOnly = this._sessionService.getReadOnly();
+        this.showEditButton = this._sessionService.getShowEditButton();
+        this.showTakeOwnershipButton = this._sessionService.getShowTakeOwnershipButton();
         this.showErrorMessage = false;
         this.viewHeight = platform_1.screen.mainScreen.heightDIPs;
-        this.height = this.viewHeight - 125;
         this.injuryReport = this._sessionService.getInjuryReport();
         this.injuryType = this._sessionService.getInjuryType();
+        this.injuredEmployee = _sessionService.getInjuredEmployee();
+        this.injuredEmployeeName = this.injuredEmployee.firstName + " " + this.injuredEmployee.lastName;
+        this.dateOfIncident = this._helperService.formatDate(this.injuryReport.dateOfIncident);
+        var dateOfBirth = this._helperService.convertJsonDateToJavaScriptDate(this.injuredEmployee.dateOfBirth);
+        this.dateOfBirth = this._helperService.formatDate(dateOfBirth);
         this.showTypeOfInjury = false;
         if (this.injuryType != null) {
             this.injuryReport.typeOfInjuryOrIllness = this.injuryType.injuryTypeDescription;
@@ -80,11 +90,67 @@ var ConfirmationSummaryComponent = (function () {
                 this.continueWorkingNo = true;
             }
         }
+        this.bodyParts = this.injuryReport.bodyParts;
+        this.injuredAreas = "";
+        for (var i = 0; i < this.bodyParts.length; i++) {
+            if (i == 0) {
+                this.injuredAreas = this.bodyParts[i].htmlTitle + " ";
+            }
+            else {
+                this.injuredAreas = this.injuredAreas + " " + this.bodyParts[i].htmlTitle + " ";
+            }
+        }
         this._sessionService.console("Constructor end");
     }
     ConfirmationSummaryComponent.prototype.ngAfterViewInit = function () {
         //this.listViewControl = this.listView.nativeElement;
         //this.listViewControl.height = 10;
+    };
+    ConfirmationSummaryComponent.prototype.edit = function () {
+        this.isReadOnly = false;
+        this.showEditButton = false;
+        this._sessionService.setShowEditButton(false);
+        this._sessionService.setReadOnly(false);
+    };
+    ConfirmationSummaryComponent.prototype.unlock = function () {
+        var _this = this;
+        if (this.takingOwnership == true)
+            return false;
+        var lockedByUser = this._sessionService.getLockedByUser();
+        dialogs.confirm({
+            title: "Take Ownership",
+            message: "This injury report is currently locked by " + lockedByUser + ". Do you wish to take ownership of this injury report?",
+            okButtonText: "OK",
+            cancelButtonText: "Cancel"
+        }).then(function (result) {
+            _this._sessionService.console("Dialog result: " + result);
+            if (result == true) {
+                var injuryReport = new injuryreport_model_1.InjuryReport();
+                injuryReport.injuryReportIDStr = _this.injuryReport.injuryReportIDStr;
+                _this.isBusy = true;
+                _this.takingOwnership = true;
+                _this._injuryReportService.lockInjuryReport(injuryReport)
+                    .subscribe(function (request) { return _this.lockInjuryReportOnSuccess(request); }, function (error) { return _this.lockInjuryReportOnError(error); });
+            }
+        });
+    };
+    ConfirmationSummaryComponent.prototype.lockInjuryReportOnSuccess = function (injuryReport) {
+        this.showEditButton = true;
+        this.showTakeOwnershipButton = false;
+        this._sessionService.setShowEditButton(true);
+        this._sessionService.setTakeOwnershipButton(false);
+        this.isBusy = false;
+    };
+    ConfirmationSummaryComponent.prototype.lockInjuryReportOnError = function (response) {
+        this.isBusy = true;
+        this._routerExtensions.navigate(["/account/login"], {
+            clearHistory: true,
+            transition: {
+                name: this._settingsService.transitionName,
+                duration: this._settingsService.transitionDuration,
+                curve: this._settingsService.transitionCurve
+            }
+        });
     };
     ConfirmationSummaryComponent.prototype.injuryOccurredAtWork = function (selectedValue) {
         this.injuryOccuredAtWorkplace = selectedValue;
@@ -158,7 +224,7 @@ var ConfirmationSummaryComponent = (function () {
         this._sessionService.setSummaryPageError("");
         this._sessionService.setShowSummaryPageError(false);
         this._routerExtensions.navigate(["/injuryreport/thankyou"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,
@@ -183,7 +249,7 @@ var ConfirmationSummaryComponent = (function () {
     };
     ConfirmationSummaryComponent.prototype.back = function () {
         this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,
