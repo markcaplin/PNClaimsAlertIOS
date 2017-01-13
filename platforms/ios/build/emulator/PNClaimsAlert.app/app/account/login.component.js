@@ -17,6 +17,7 @@ var LoginComponent = (function () {
         this._routerExtensions = _routerExtensions;
         this._settingsService = _settingsService;
         this.transitionList = ["fade", "flip", "slide"];
+        this.padding = this._settingsService.getPadding();
         this.emailAddress = "mcaplin@patnat.com";
         this.password = "test";
         this.messageBox = "";
@@ -25,10 +26,25 @@ var LoginComponent = (function () {
         for (var i = 0; i < this.transitionList.length; i++) {
             this.transitions.push(this.transitionList[i]);
         }
+        //application.on(application.orientationChangedEvent, this.setOrientation);
     }
+    LoginComponent.prototype.focusPassword = function () {
+        dialogs.alert({
+            title: "focus password event.",
+            message: "focus",
+            okButtonText: "OK"
+        }).then(function () {
+        });
+        this.passwordElement.nativeElement.focus();
+    };
+    LoginComponent.prototype.setOrientation = function (args) {
+        this.padding = this._settingsService.getPadding();
+    };
     LoginComponent.prototype.ngOnInit = function () {
-        //this.page.backgroundImage = "~/images/main-image.jpg";
         this.page.className = "coverImage";
+    };
+    LoginComponent.prototype.ngOnDestroy = function () {
+        // application.off(application.orientationChangedEvent);
     };
     LoginComponent.prototype.selectedIndexChanged = function (picker) {
         var transition = this.transitions[picker.selectedIndex];
@@ -118,6 +134,10 @@ var LoginComponent = (function () {
             });
         }
     };
+    __decorate([
+        core_1.ViewChild("password"), 
+        __metadata('design:type', core_1.ElementRef)
+    ], LoginComponent.prototype, "passwordElement", void 0);
     LoginComponent = __decorate([
         core_1.Component({
             selector: "login",

@@ -4,7 +4,7 @@ var user_model_1 = require("../models/user.model");
 var injuryreport_model_1 = require("../models/injuryreport.model");
 var SessionService = (function () {
     function SessionService() {
-        this.productionMode = false;
+        this.productionMode = true;
         this.photos = [];
         this.injuryTypes = [];
         this.originalPhotos = [];

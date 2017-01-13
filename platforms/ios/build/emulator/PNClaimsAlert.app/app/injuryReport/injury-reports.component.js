@@ -19,6 +19,7 @@ var InjuryReportsComponent = (function () {
         this.viewHeight = platform_1.screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 90;
         this.user = _sessionService.getUser();
+        this.padding = _settingsService.getPadding();
     }
     InjuryReportsComponent.prototype.ngAfterViewInit = function () {
         this.listViewControl = this.listView.nativeElement;
@@ -115,7 +116,7 @@ var InjuryReportsComponent = (function () {
         this._sessionService.setOriginalPhotos(originalPhotos);
         this._sessionService.savePhotos(newPhotos);
         this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

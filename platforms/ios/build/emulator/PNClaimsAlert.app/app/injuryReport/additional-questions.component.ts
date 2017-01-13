@@ -54,10 +54,18 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
     public showEditButton: Boolean = false;
     public takingOwnership: Boolean = false;   
     public showTakeOwnershipButton: Boolean = false;
+    public padding: Number;
   
-    constructor(private _sessionService: SessionService, private _routerExtensions: RouterExtensions, private _injuryReportService: InjuryReportService,
-        private _settingsService: SettingsService, private _helperService: HelperService) {
+    constructor(
 
+        private _sessionService: SessionService, 
+        private _routerExtensions: RouterExtensions, 
+        private _injuryReportService: InjuryReportService,
+        private _settingsService: SettingsService, 
+        private _helperService: HelperService) {
+
+        this.padding = _settingsService.getPadding();
+            
         this._sessionService.console("Constructor start");
 
         this.viewHeight = screen.mainScreen.heightDIPs;
@@ -344,7 +352,7 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
         if (this._sessionService.getIsDirty() == false) {
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -355,7 +363,7 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/confirmationsummary"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -412,7 +420,7 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
 
         if (this.buttonPressed == "back") {
             this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,
@@ -423,7 +431,7 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/confirmationsummary"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,
@@ -435,21 +443,16 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
 
         this.buttonPressed = "";
 
-        //this.clearValidationErrors();
+        dialogs.alert({
 
-        //if (this.continueButtonPressed == true || this.backButtonPressed == true) {
-        //    this.alerts = [];
-        //    this.messageBox = "";
-        //}
-        //else {
-        //    this._alertService.renderSuccessMessage(response.returnMessage);
-        //    this.messageBox = this._alertService.returnFormattedMessage();
-        //    this.alerts = this._alertService.returnAlerts();
-        //}
+            title: "Saved",
+            message: "Information successfully saved.",
+            okButtonText: "OK"                        
 
-        //this.isDirty = false;
+        }).then(function () {                        
+                                                 
+        });      
 
-        //this.injuryReportEvent.emit(true);
 
     }
 
@@ -463,14 +466,15 @@ export class AdditionalQuestionsComponent implements AfterViewInit {
             this.errorMessage = this.errorMessage + response.returnMessage[i];
         }
 
-        //this.clearValidationErrors();
+        dialogs.alert({
 
-        //this._alertService.renderErrorMessage(response.returnMessage);
-        //this.messageBox = this._alertService.returnFormattedMessage();
-        //this.alerts = this._alertService.returnAlerts();
-        //this._alertService.setValidationErrors(this, response.validationErrors);
+            title: "Validation Error",
+            message: this.errorMessage,
+            okButtonText: "OK"                        
 
-        //this.injuryReportEvent.emit(false);
+        }).then(function () {                        
+                                                 
+        });      
 
     }
 

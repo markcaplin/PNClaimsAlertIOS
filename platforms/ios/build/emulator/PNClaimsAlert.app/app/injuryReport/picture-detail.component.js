@@ -14,6 +14,7 @@ var PictureDetailComponent = (function () {
         this._helperService = _helperService;
         this.isReadOnly = false;
         this.isEditable = false;
+        this.padding = _settingsService.getPadding();
         this.photoIndex = _sessionService.getPhotoIndex();
         this.photos = _sessionService.getPhotos();
         this.photo = this.photos[this.photoIndex];
@@ -67,7 +68,7 @@ var PictureDetailComponent = (function () {
     };
     PictureDetailComponent.prototype.back = function () {
         this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

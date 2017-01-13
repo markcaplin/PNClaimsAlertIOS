@@ -10,7 +10,7 @@ import { BodyPart } from "../models/bodyPart.model";
 @Injectable()
 export class SessionService {
 
-    private productionMode: Boolean = true;
+    private productionMode: Boolean = false;
 
     private apiServer: string;
     private redirectUrl: string;

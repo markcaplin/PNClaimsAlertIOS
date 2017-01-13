@@ -127,7 +127,7 @@ var TakePictureComponent = (function () {
         this._sessionService.console("tap action");
         var productionMode = this._sessionService.isProductionMode();
         if (productionMode == true) {
-            camera.takePicture({ width: 150, height: 150, saveToGallery: false, keepAspectRatio: true }).then(function (picture) {
+            camera.takePicture({ saveToGallery: false }).then(function (picture) {
                 //var documents = fs.knownFolders.documents();
                 //var path = fs.path.join(documents.path, "test.mov");
                 //var file = fs.File.fromPath(path);

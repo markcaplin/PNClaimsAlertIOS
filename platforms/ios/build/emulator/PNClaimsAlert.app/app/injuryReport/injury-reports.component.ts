@@ -52,12 +52,16 @@ export class InjuryReportsComponent implements OnInit, AfterViewInit {
     public injuredUser: string;
     public activeUser: string;
 
+    public padding: number;
+
     constructor(private _injuryReportService: InjuryReportService, private router: Router, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService, private _sessionService: SessionService) {
 
         this.viewHeight = screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 90;
 
         this.user = _sessionService.getUser();
+
+        this.padding = _settingsService.getPadding();
 
     }
 
@@ -191,7 +195,7 @@ export class InjuryReportsComponent implements OnInit, AfterViewInit {
         this._sessionService.savePhotos(newPhotos);  
      
         this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

@@ -212,7 +212,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
         if (productionMode == true) {            
 
-            camera.takePicture({ width: 150, height: 150, saveToGallery: false, keepAspectRatio: true }).then(picture => {    
+            camera.takePicture({saveToGallery: false }).then(picture => {    
 
                 //var documents = fs.knownFolders.documents();
                 //var path = fs.path.join(documents.path, "test.mov");

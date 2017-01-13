@@ -10,7 +10,13 @@ var SettingsService = (function () {
     }
     SettingsService.prototype.getPadding = function () {
         var viewWidth = platform_1.screen.mainScreen.widthDIPs;
-        var padding = viewWidth * .10;
+        var padding = 0;
+        if (viewWidth < 400) {
+            padding = viewWidth * .01;
+        }
+        else {
+            padding = viewWidth * .10;
+        }
         return padding;
     };
     SettingsService = __decorate([

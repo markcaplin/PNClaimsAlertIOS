@@ -593,7 +593,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
         if (this.isDirty == false) {
 
-            if (this.buttonPressed == "back") {
+            if (this.buttonPressed == "back") {                
                 this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
                     clearHistory: true,
                     transition: {
@@ -618,14 +618,14 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
         }
 
-
+        if (this.buttonPressed == "back" || this.buttonPressed == "forward") {
+            this.isBusy = true;                
+        }
+             
         this._sessionService.console("save start");
-
-        this.isBusy = true;
 
         this.injuryReport.bodyParts = this.bodyParts;
         this._sessionService.setInjuryReport(this.injuryReport);
-
 
         this._sessionService.console("body parts = " + this.bodyParts.length);
 
@@ -699,6 +699,8 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
                 }
             });
 
+            return;
+
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/takepicture"], {
@@ -709,11 +711,14 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
                     curve: this._settingsService.transitionCurve
                 }
             });
+
+            return;
         }
 
         this.buttonPressed = "";
 
-        this.isDirty = false;       
+        this.isDirty = false;      
+        this.isBusy = false; 
 
         dialogs.alert({
 
@@ -723,8 +728,8 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
         }).then(function () {                        
                                                  
-        });      
-
+        });     
+    
     }
 
     private saveInjuryReportBodyPartsOnError(response: TransactionalInformation) {

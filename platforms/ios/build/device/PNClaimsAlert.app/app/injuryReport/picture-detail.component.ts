@@ -33,9 +33,13 @@ export class PictureDetailComponent implements OnInit, AfterViewInit {
     public width: number;
     public isReadOnly: Boolean = false;
     public isEditable: Boolean = false;
+    public padding: Number;
+
     private originalFileName: string;
 
     constructor(private _sessionService: SessionService, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService, private _helperService: HelperService) {
+
+        this.padding = _settingsService.getPadding();
 
         this.photoIndex = _sessionService.getPhotoIndex();
         this.photos = _sessionService.getPhotos();
@@ -112,7 +116,7 @@ export class PictureDetailComponent implements OnInit, AfterViewInit {
     public back() {
 
         this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

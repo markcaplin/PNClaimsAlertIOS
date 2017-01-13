@@ -33,6 +33,7 @@ var TakePictureComponent = (function () {
         this.showEditButton = false;
         this.showTakeOwnershipButton = false;
         this.takingOwnership = false;
+        this.padding = _settingsService.getPadding();
         this.viewHeight = platform_1.screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 200;
         this.isReadOnly = this._sessionService.getReadOnly();
@@ -126,7 +127,7 @@ var TakePictureComponent = (function () {
         this._sessionService.console("tap action");
         var productionMode = this._sessionService.isProductionMode();
         if (productionMode == true) {
-            camera.takePicture({ width: 150, height: 150, saveToGallery: false, keepAspectRatio: true }).then(function (picture) {
+            camera.takePicture({ saveToGallery: false }).then(function (picture) {
                 //var documents = fs.knownFolders.documents();
                 //var path = fs.path.join(documents.path, "test.mov");
                 //var file = fs.File.fromPath(path);
@@ -280,7 +281,7 @@ var TakePictureComponent = (function () {
             }
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -293,7 +294,7 @@ var TakePictureComponent = (function () {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -306,6 +307,12 @@ var TakePictureComponent = (function () {
             }
             this._sessionService.setIsDirty(false);
             this._sessionService.console("done");
+            dialogs.alert({
+                title: "Saved",
+                message: "Information successfully saved.",
+                okButtonText: "OK"
+            }).then(function () {
+            });
             return;
         }
         var documentInformation = new document_model_1.Document();
@@ -362,7 +369,7 @@ var TakePictureComponent = (function () {
         setTimeout(function () {
             if (_this.isReadOnly == true) {
                 _this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: _this._settingsService.transitionName,
                         duration: _this._settingsService.transitionDuration,
@@ -381,7 +388,7 @@ var TakePictureComponent = (function () {
         setTimeout(function () {
             if (_this.isReadOnly == true) {
                 _this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: _this._settingsService.transitionName,
                         duration: _this._settingsService.transitionDuration,

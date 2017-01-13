@@ -1,5 +1,5 @@
 ﻿
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
 import { User } from "../models/user.model";
 import { InjuryReport } from "../models/injuryreport.model";
 import { UserService } from "../services/user.service";
@@ -14,6 +14,8 @@ import { TransactionalInformation } from "../models/transactionalinformation.mod
 import { NS_ROUTER_DIRECTIVES, RouterExtensions } from 'nativescript-angular/router';
 
 import * as dialogs from "ui/dialogs";
+import { DatePicker } from "ui/date-picker";
+
 
 @Component({
     selector: "injured-employee",
@@ -22,7 +24,10 @@ import * as dialogs from "ui/dialogs";
     providers: []
 })
 
-export class InjuredEmployeeComponent {
+export class InjuredEmployeeComponent implements AfterViewInit {
+
+    @ViewChild('dp') datePicker: ElementRef;
+    public datePickerControl: DatePicker;
 
     public emailAddress: string;
     public password: string;
@@ -53,9 +58,13 @@ export class InjuredEmployeeComponent {
     public showEditButton: Boolean = false;
     public showTakeOwnershipButton: Boolean = false;
     public takingOwnership: Boolean = false;
+    public padding: number;
+    public datePickerHeight: number = 0;
  
     constructor(private _sessionService: SessionService, private _userService: UserService, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService, private _helperService: HelperService, private _injuryReportService: InjuryReportService) {
 
+        this.padding = this._settingsService.getPadding();
+        this.datePickerHeight = 0;
         this.selectedInjuryReportIDStr = this._sessionService.getSelectedIncidentReportString();
         this.user = _sessionService.getUser();
 
@@ -124,6 +133,11 @@ export class InjuredEmployeeComponent {
 
     }
 
+    public ngAfterViewInit(): void {        
+        this.datePickerControl = this.datePicker.nativeElement;
+        this.datePickerHeight = 0;              
+    }
+    
     private edit() {
         this.isReadOnly = false;
         this.showEditButton = false;
@@ -139,6 +153,23 @@ export class InjuredEmployeeComponent {
 
         let dateOfBirth = this._helperService.convertJsonDateToJavaScriptDate(this.injuredEmployee.dateOfBirth);
         this.dateOfBirth = this._helperService.formatDate(dateOfBirth);
+
+        this._sessionService.console("incident date = " + this.injuryReport.dateOfIncident);
+
+        let dateOfIncident: string = this._helperService.formatDate(this.injuryReport.dateOfIncident);
+
+        this._sessionService.console(dateOfIncident);
+
+        let newDate = new Date(dateOfIncident);
+
+        this._sessionService.console("javascript incident date = " + newDate);
+
+        if (this.datePicker == undefined) {
+            return;
+        }
+    
+        this.datePickerControl.date = newDate;
+        this.datePickerHeight = 0;
 
     }
 
@@ -212,15 +243,70 @@ export class InjuredEmployeeComponent {
 
     }
 
-    public datePicker() {
-        this._routerExtensions.navigate(["/injuryreport/datepicker"], {
-            clearHistory: false,
-            transition: {
-                name: this._settingsService.transitionName,
-                duration: this._settingsService.transitionDuration,
-                curve: this._settingsService.transitionCurve
-            }
-        });
+    public toggleDatePicker() {
+
+        if (this.datePickerHeight==125) {
+            this.datePickerHeight = 0;
+        }
+        else {
+
+            this.datePickerHeight = 125;
+                            
+            this._sessionService.console("incident date = " + this.injuryReport.dateOfIncident);
+            let dateOfIncident: string = this._helperService.formatDate(this.injuryReport.dateOfIncident);
+            this._sessionService.console(dateOfIncident);
+            let newDate = new Date(dateOfIncident);
+            this._sessionService.console("javascript incident date = " + newDate);
+            this.datePickerControl.date = newDate;        
+
+        }
+       // this._routerExtensions.navigate(["/injuryreport/datepicker"], {
+       //     clearHistory: false,
+       //     transition: {
+       //         name: this._settingsService.transitionName,
+       //         duration: this._settingsService.transitionDuration,
+       //         curve: this._settingsService.transitionCurve
+       //     }
+       // });
+
+    }
+
+    public dateChanged(property: any, oldValue: any, newValue: any): void {
+
+        let currentDate: Date = this.datePickerControl.date;
+
+        setTimeout(() => {
+
+                if (currentDate == this.datePickerControl.date) {
+                    return;
+                }
+        
+                let today = new Date();                              
+                if (this.datePickerControl.date>today) {
+
+                    let dateOfIncident: string = this._helperService.formatDate(this.datePickerControl.date);             
+          
+                    dialogs.alert({
+
+                        title: "Invalid Incident Date.",
+                        message: "Reported incident date of " + dateOfIncident + " cannot be in the future",
+                        okButtonText: "OK"                        
+
+                    }).then(function () {                        
+                                                 
+                    });      
+
+                     this.datePickerControl.date = currentDate;  
+
+                    return;
+
+                }
+
+                this.injuryReport.dateOfIncident = this.datePickerControl.date;
+                this._sessionService.setIsDirty(true);                          
+                this.dateOfIncident = this._helperService.formatDate(this.injuryReport.dateOfIncident);             
+
+            }, 100);
 
     }
 
@@ -241,7 +327,7 @@ export class InjuredEmployeeComponent {
             if (this.isReadOnly == true) {
 
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -265,7 +351,7 @@ export class InjuredEmployeeComponent {
             else {
 
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -308,9 +394,14 @@ export class InjuredEmployeeComponent {
         if (response.duplicateInjuryReport) {
 
             this.isBusy = false;
-
-            this.showErrorMessage = true;
+            
             this.messageBox = "An injury already exists for the same user and incident date";
+
+            dialogs.alert({
+                    title: "Validation Error",
+                    message: this.messageBox,
+                    okButtonText: "OK"
+                    }).then(function () {});                              
 
         }
         else {
@@ -350,7 +441,8 @@ export class InjuredEmployeeComponent {
         this._sessionService.setIsDirty(false);
         this.isBusy = false;
 
-        if (this.buttonPressed == "back") {
+        if (this.buttonPressed == "back") {        
+
             this._routerExtensions.navigate(["/injuryreport/injuryreports"], {
                 clearHistory: true,
                 transition: {
@@ -361,10 +453,10 @@ export class InjuredEmployeeComponent {
             });
 
         }
-        else if (this.buttonPressed == "forward") {
+        else if (this.buttonPressed == "forward") {        
 
             this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionName,
                     duration: this._settingsService.transitionDuration,
@@ -386,6 +478,16 @@ export class InjuredEmployeeComponent {
             this.buttonPressed = "";
             this._sessionService.console("success=" + this.injuryReport.injuryReportID);
 
+            dialogs.alert({
+
+                title: "Saved.",
+                message: "Information successfully saved",
+                okButtonText: "OK"                        
+
+            }).then(function () {                        
+                                                 
+            });      
+
         }
        
     }
@@ -401,8 +503,12 @@ export class InjuredEmployeeComponent {
                 this.messageBox = error.returnMessage[0];
             }
         }
-
-        this.showErrorMessage = true;
+     
+        dialogs.alert({
+            title: "Validation Error",
+            message: this.messageBox,
+            okButtonText: "OK"
+        }).then(function () {});    
 
         this._sessionService.console("error " + this.messageBox);
         

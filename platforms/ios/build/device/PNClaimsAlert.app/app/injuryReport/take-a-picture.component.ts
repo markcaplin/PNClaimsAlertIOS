@@ -56,12 +56,15 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
     public showEditButton: Boolean = false;
     public showTakeOwnershipButton: Boolean = false;
     public takingOwnership: Boolean = false;
+    public padding: Number;
 
     public constructor(private ngZone: NgZone, private page: Page, private _sessionService: SessionService,
         private _injuryReportService: InjuryReportService,
         private _userService: UserService, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService,
         private _helperService: HelperService)
     {
+
+        this.padding = _settingsService.getPadding();
 
         this.viewHeight = screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 200;
@@ -209,7 +212,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
         if (productionMode == true) {            
 
-            camera.takePicture({ width: 150, height: 150, saveToGallery: false, keepAspectRatio: true }).then(picture => {    
+            camera.takePicture({saveToGallery: false }).then(picture => {    
 
                 //var documents = fs.knownFolders.documents();
                 //var path = fs.path.join(documents.path, "test.mov");
@@ -425,7 +428,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -439,7 +442,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -453,6 +456,17 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
             this._sessionService.setIsDirty(false);
             this._sessionService.console("done");
+
+            dialogs.alert({
+
+                title: "Saved",
+                message: "Information successfully saved.",
+                okButtonText: "OK"                        
+
+            }).then(function () {                        
+                                                 
+            });      
+
             return;
         }
 
@@ -490,7 +504,6 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
     public uploadDocumentOnError(response: TransactionalInformation) {
 
-
         this.isBusy = true;
 
         this._routerExtensions.navigate(["/account/login"], {
@@ -501,7 +514,6 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
                 curve: this._settingsService.transitionCurve
             }
         });
-
 
     }
 
@@ -536,7 +548,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
             if (this.isReadOnly == true) {
 
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -564,7 +576,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
             if (this.isReadOnly == true) {
 
                 this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,

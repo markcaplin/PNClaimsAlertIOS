@@ -399,7 +399,7 @@ var BodyPartPickerComponent = (function () {
         if (this.isDirty == false) {
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -409,7 +409,7 @@ var BodyPartPickerComponent = (function () {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -468,7 +468,7 @@ var BodyPartPickerComponent = (function () {
         this._sessionService.console("save");
         if (this.buttonPressed == "back") {
             this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionName,
                     duration: this._settingsService.transitionDuration,
@@ -478,7 +478,7 @@ var BodyPartPickerComponent = (function () {
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,
@@ -488,6 +488,12 @@ var BodyPartPickerComponent = (function () {
         }
         this.buttonPressed = "";
         this.isDirty = false;
+        dialogs.alert({
+            title: "Saved",
+            message: "Information successfully saved.",
+            okButtonText: "OK"
+        }).then(function () {
+        });
     };
     BodyPartPickerComponent.prototype.saveInjuryReportBodyPartsOnError = function (response) {
         this.isBusy = true;
@@ -506,7 +512,7 @@ var BodyPartPickerComponent = (function () {
         setTimeout(function () {
             if (_this.isReadOnly == true) {
                 _this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: _this._settingsService.transitionName,
                         duration: _this._settingsService.transitionDuration,
@@ -525,7 +531,7 @@ var BodyPartPickerComponent = (function () {
         setTimeout(function () {
             if (_this.isReadOnly == true) {
                 _this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: _this._settingsService.transitionSlideRight,
                         duration: _this._settingsService.transitionDuration,

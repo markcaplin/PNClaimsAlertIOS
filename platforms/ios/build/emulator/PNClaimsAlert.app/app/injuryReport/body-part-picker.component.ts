@@ -595,7 +595,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -605,7 +605,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -691,7 +691,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
         if (this.buttonPressed == "back") {
             this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionName,
                     duration: this._settingsService.transitionDuration,
@@ -702,7 +702,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,
@@ -714,6 +714,16 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
         this.buttonPressed = "";
 
         this.isDirty = false;       
+
+        dialogs.alert({
+
+            title: "Saved",
+            message: "Information successfully saved.",
+            okButtonText: "OK"                        
+
+        }).then(function () {                        
+                                                 
+        });      
 
     }
 
@@ -740,7 +750,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
             if (this.isReadOnly == true) {
                 this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -766,7 +776,7 @@ export class BodyPartPickerComponent implements OnInit, AfterViewInit {
 
             if (this.isReadOnly == true) {
                 this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,

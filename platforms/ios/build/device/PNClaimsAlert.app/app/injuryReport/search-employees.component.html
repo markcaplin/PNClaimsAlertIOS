@@ -13,7 +13,7 @@
 
         <ListView #listView [items]="employees" (loadMoreItems)="listViewLoadMoreItems()" (itemTap)="onItemTap($event)">
             <template let-item="item" let-i="index">
-                <StackLayout style="padding-bottom:5; padding-top:5">
+                <StackLayout style="padding-bottom:5; padding-top:5; padding-left:{{padding}}; padding-right:{{padding}}">
                     <Label [text]='item.firstName + " " + item.lastName'></Label>
                     <Label textWrap="true" [text]='item.emailAddress'></Label>
                 </StackLayout>

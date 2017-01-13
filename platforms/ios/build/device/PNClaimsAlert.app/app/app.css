@@ -30,13 +30,21 @@ TextField {
   border-color: #6E595C;
 }
 
+TextView {
+  padding: 10;
+  font-size: 13;
+  border-width: 1;
+  border-color: #6E595C;
+  height: 40;
+}
+
 Label {
     padding-top: 10;
 }
 
 .selected-button {
-    background-color: cornflowerblue;
-    color: black;
+    background-color: green;
+    color: white;
     font: bold;
 }
 

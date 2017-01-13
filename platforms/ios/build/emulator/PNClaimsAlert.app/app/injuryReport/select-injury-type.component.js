@@ -18,6 +18,7 @@ var SelectInjuryTypeComponent = (function () {
         this.alerts = [];
         this.viewHeight = platform_1.screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 90;
+        this.padding = this._settingsService.getPadding();
     }
     SelectInjuryTypeComponent.prototype.ngAfterViewInit = function () {
         var _this = this;

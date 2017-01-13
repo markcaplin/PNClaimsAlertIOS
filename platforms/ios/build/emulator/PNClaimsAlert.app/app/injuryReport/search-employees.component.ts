@@ -60,7 +60,8 @@ export class SearchEmployeesComponent implements OnInit, AfterViewInit {
     public selectedIndex: number;
 
     public employeeName: string;
-
+    public padding: number;
+    
     constructor(private _injuryReportService: InjuryReportService, private router: Router, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService, private _sessionService: SessionService) {
 
         this.currentPageNumber = 1;
@@ -75,6 +76,9 @@ export class SearchEmployeesComponent implements OnInit, AfterViewInit {
 
         this.viewHeight = screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 160;
+
+        this.padding = this._settingsService.getPadding();
+   
 
         //application.on(application.orientationChangedEvent, this.setOrientation);
 
@@ -254,7 +258,7 @@ export class SearchEmployeesComponent implements OnInit, AfterViewInit {
 
     public back() {
         this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

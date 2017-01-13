@@ -478,7 +478,7 @@
 		</data>
 		<key>app/App_Resources/iOS/INfo.plist</key>
 		<data>
-		I3b65iXJlo/2MWVcMEJCedsXIt8=
+		x4hta1Fl/P8KG/GBD87j/zjf6iE=
 		</data>
 		<key>app/App_Resources/iOS/LaunchScreen.storyboard</key>
 		<data>
@@ -490,19 +490,19 @@
 		</data>
 		<key>app/account/login.component.html</key>
 		<data>
-		7ZIibS9/yexC+CvXinK8CnN/hxQ=
+		w+PB3nu7ORQAV9UzK+CCGU1LM/E=
 		</data>
 		<key>app/account/login.component.js</key>
 		<data>
-		s3obbh/iuFYE03sEMruoV3025l0=
+		IkbYCLqRX907U2XPYd3LdJejVAM=
 		</data>
 		<key>app/account/login.component.js.map</key>
 		<data>
-		pJ0oitbQiX6cHgQay4fP7e55puQ=
+		NTSW/vX5XnQWFwqv3vO81bzeZ6c=
 		</data>
 		<key>app/account/login.component.ts</key>
 		<data>
-		svco+IZLTMz+CjHh362yUMBkQlI=
+		ERWu7p5xXUfuiGOqOX0Q6MC/hQ0=
 		</data>
 		<key>app/app.component.js</key>
 		<data>
@@ -518,7 +518,7 @@
 		</data>
 		<key>app/app.css</key>
 		<data>
-		BUoxqR4A1n4X5ktEcQnQCZF2w00=
+		bLc2wTs+5wtI7OG3EKMnly+AB/g=
 		</data>
 		<key>app/app.routes.js</key>
 		<data>
@@ -1458,19 +1458,19 @@
 		</data>
 		<key>app/injuryReport/additional-questions.component.html</key>
 		<data>
-		MbPiZjhfFKp7+5d+OkBb4WMr5No=
+		PKiJueaCOWAxcOcawIY9DVFHM40=
 		</data>
 		<key>app/injuryReport/additional-questions.component.js</key>
 		<data>
-		KOxyaiXWyiGkDbYoXrBV7oj2r5Q=
+		LbrFtoCJP5oOr6sJF16B61V0mu4=
 		</data>
 		<key>app/injuryReport/additional-questions.component.js.map</key>
 		<data>
-		M3MjKoP/PR8iA906ai/ihUIT51g=
+		eKhigV2dQY21GErIox48hnYHEWg=
 		</data>
 		<key>app/injuryReport/additional-questions.component.ts</key>
 		<data>
-		UnoLKHUEE+8Fj7jpxGwqYCdZKs0=
+		LGj75wkFWv0Kr+Mvxf3bRDx/SeM=
 		</data>
 		<key>app/injuryReport/additional-questions.js</key>
 		<data>
@@ -1482,19 +1482,19 @@
 		</data>
 		<key>app/injuryReport/body-part-picker.component.html</key>
 		<data>
-		sKL1Hd3nu0Hw4YXwZzXklOVhZN0=
+		IpEEzUcJyusgQsjqgMnY4fIS4I0=
 		</data>
 		<key>app/injuryReport/body-part-picker.component.js</key>
 		<data>
-		fd3jDJi2+6pZ/Zo3XzWIU9LZzlc=
+		k3jBoYG8YQv034HGh5Q1dXJEBu0=
 		</data>
 		<key>app/injuryReport/body-part-picker.component.js.map</key>
 		<data>
-		m1q7ucAvUg6R7DxsUyp9VA9nyVM=
+		xssDEVEwLF7hI6EaLFTBKLv3WgM=
 		</data>
 		<key>app/injuryReport/body-part-picker.component.ts</key>
 		<data>
-		nC8BcwoiVCPmh6iy83iDKhS0TtQ=
+		sJWpvhqAzR3hrQ0gtkymEFfKoW0=
 		</data>
 		<key>app/injuryReport/confirmation-summary-redirect.component.js</key>
 		<data>
@@ -1506,19 +1506,19 @@
 		</data>
 		<key>app/injuryReport/confirmation-summary.component.html</key>
 		<data>
-		Lzq0g+kHFZDYfP+CjB1ZGu90y8k=
+		GeovoXS0UOy7EfsvVFlEBm5i9xY=
 		</data>
 		<key>app/injuryReport/confirmation-summary.component.js</key>
 		<data>
-		6QD78mBDSmXoY3b1uT6wdz8iQBs=
+		8z3r+IW0DjOBq1wGJAfoReXy3bA=
 		</data>
 		<key>app/injuryReport/confirmation-summary.component.js.map</key>
 		<data>
-		lkqQ5J8E3EqGoZ70+CWSem6qTRA=
+		AooEUh5lnq87XMTeFcjg4gAyd9Y=
 		</data>
 		<key>app/injuryReport/confirmation-summary.component.ts</key>
 		<data>
-		BEH7sySo8Hc7rZiCq9gqjaBjmxI=
+		xpOCEElcm7vkiRqkLkpRtIyJpSE=
 		</data>
 		<key>app/injuryReport/incident-date-picker.component.html</key>
 		<data>
@@ -1538,99 +1538,103 @@
 		</data>
 		<key>app/injuryReport/injured-employee.component.html</key>
 		<data>
-		6V6AFJwsT2PvDgjz4fwefkZYYpY=
+		SV7YBlUJ+roTRKdS0xaN8axIh6g=
 		</data>
 		<key>app/injuryReport/injured-employee.component.js</key>
 		<data>
-		twF5VMbcjPm70pebmR82Ro8ms6A=
+		NXGyVj0wd+VbTkTF1QkwsOkKqMc=
 		</data>
 		<key>app/injuryReport/injured-employee.component.js.map</key>
 		<data>
-		x9CnN3hWbj3RuA+SHeSL1y1/ic0=
+		nYkBak4WXewvvqBBGci2vb5BbUQ=
 		</data>
 		<key>app/injuryReport/injured-employee.component.ts</key>
 		<data>
-		4RJyU/jtCtiRrPtvB6n/OkktVu8=
+		duZ7LjRYtPs1gkULrLWXt3Dwll0=
 		</data>
 		<key>app/injuryReport/injury-reports.component.html</key>
 		<data>
-		EoNVHeY5ufvp3K/kI0JA2ApnKVs=
+		fn2EY7yUJzKKX0BIRZQcFVIZMVM=
 		</data>
 		<key>app/injuryReport/injury-reports.component.js</key>
 		<data>
-		d7b/aedaiXrqyt1GY1dkNQb5mIc=
+		ry5/zVxzj9R16scvAWM7X6U7Fi8=
 		</data>
 		<key>app/injuryReport/injury-reports.component.js.map</key>
 		<data>
-		tSlEWxHl+PBzpCFoc/QJwQB2k2k=
+		FJlN+Mlu+8FDy8InYDHMWHtusSM=
 		</data>
 		<key>app/injuryReport/injury-reports.component.ts</key>
 		<data>
-		5SRK2arwi+O0KABSFAas6Hs7q9o=
+		VAg8gW2Ox080sR/GVpHgjPN4M4I=
 		</data>
 		<key>app/injuryReport/picture-detail.component.html</key>
 		<data>
-		5tIitOeOyp6WmYo8FAsjxUrnldw=
+		M9iNSvdGgK7WEjzO0dgY7MUPCF0=
 		</data>
 		<key>app/injuryReport/picture-detail.component.js</key>
 		<data>
-		sgCp50I401QBGjoM17r0LKGLDkU=
+		FRX5Mluf4AmnVGXyO0mDeGb7CNs=
 		</data>
 		<key>app/injuryReport/picture-detail.component.js.map</key>
 		<data>
-		7lq/CjC9kmTAh9ZT/ffFGqG9eaM=
+		EtILATWCt8OoO6S0T9RX9NYkxJ4=
 		</data>
 		<key>app/injuryReport/picture-detail.component.ts</key>
 		<data>
-		xDhGlsVaBdcttH4Gg2Z0oWFKXx4=
+		HJXJN0m5fLFtMoYj4+W0ntaBzy4=
 		</data>
 		<key>app/injuryReport/search-employees.component.html</key>
 		<data>
-		6SOLM1kKlDQMLDn6KDye3k1gfiA=
+		c6fauoikaedV0MjiJ1hG2uyWw+0=
 		</data>
 		<key>app/injuryReport/search-employees.component.js</key>
 		<data>
-		yVwxGx/8ZfIITnYBDVaX8VL8gPE=
+		L43b/3P7DEi2igUtb9IQU8f7kMw=
 		</data>
 		<key>app/injuryReport/search-employees.component.js.map</key>
 		<data>
-		6bU7wo2V+u0U4+RE24HustFZ4Xk=
+		SlK+OV2CamOaXx4hUpCJZoS2xQY=
 		</data>
 		<key>app/injuryReport/search-employees.component.ts</key>
 		<data>
-		cxcH7YvVkp/TmetAePTJKA+89tg=
+		PuOxxmWzMf+rrfcnD1pR8UB/fes=
 		</data>
 		<key>app/injuryReport/select-injury-type.component.html</key>
 		<data>
-		rPLTb3vTBnN05YjBPSqlguaeQxI=
+		EIGocSYogbNOh82uf/bdhKvgPoM=
 		</data>
 		<key>app/injuryReport/select-injury-type.component.js</key>
 		<data>
-		ZTlxjFuWbEsb85TmfPjsMuW6Ru8=
+		tV2zahKQq3mnf818rJFYYA21+LI=
 		</data>
 		<key>app/injuryReport/select-injury-type.component.js.map</key>
 		<data>
-		SNT6MyYRI2fvcxlebUqvQRQfTL0=
+		/mm5uERBddZg8SIrVDuOsUzchKk=
 		</data>
 		<key>app/injuryReport/select-injury-type.component.ts</key>
 		<data>
-		gjaTdKXM5+qfBNjjqL+aMm7n96g=
+		nz7bhcxHq1IaPhQkzVdQ9l9itp8=
 		</data>
 		<key>app/injuryReport/take-a-picture.component.html</key>
 		<data>
-		nUjJJkQxzcFIUYQxwtAINJi1fvQ=
+		x/XOozkfKYDMPT/6PagZjP32M/s=
 		</data>
 		<key>app/injuryReport/take-a-picture.component.js</key>
 		<data>
-		Efhlhauv9kd78sdb2ZaUvHsZojA=
+		K24u7ELF4gP6T8UhXHwKIQPNyFI=
 		</data>
 		<key>app/injuryReport/take-a-picture.component.js.map</key>
 		<data>
-		LKqDgltevawNswMTAxCwDI2jKdA=
+		+86K/XVS0DtZk0xc8nvF6FuXOZU=
 		</data>
 		<key>app/injuryReport/take-a-picture.component.ts</key>
 		<data>
-		YvEyQ+4Zdfp2Cxd1VFycLvirCmc=
+		BZjlTGhEbGjIYd1h4o4TXeUXkbQ=
+		</data>
+		<key>app/injuryReport/test.txt</key>
+		<data>
+		4+r2j4z4kYOqZX99FF9QJdLDbaw=
 		</data>
 		<key>app/injuryReport/thank-you.component.html</key>
 		<data>
@@ -1826,7 +1830,7 @@
 		</data>
 		<key>app/models/photo.model.ts</key>
 		<data>
-		/k3W/ZAtKR+Iyomj+S9SlI27o+A=
+		TyNydn/lI3FUjywXiraIywdHWOQ=
 		</data>
 		<key>app/models/role.model.js</key>
 		<data>
@@ -1906,15 +1910,15 @@
 		</data>
 		<key>app/services/session.service.js</key>
 		<data>
-		21UKeubdANpOnHswHAITPHDkwgE=
+		RXyHBcVywx4ox38O96VbzNRHfno=
 		</data>
 		<key>app/services/session.service.js.map</key>
 		<data>
-		VtDDrh6DimsahUuYw/cr3UEYLWw=
+		Ow/7ywOMTO3DLhwzDMAjmmDaIsI=
 		</data>
 		<key>app/services/session.service.ts</key>
 		<data>
-		7LGtQ2kwhWjwTHyFDKgFOjrSSvo=
+		Pt73L+t5AafKz4q60ku5QjRjSaQ=
 		</data>
 		<key>app/services/settings.js</key>
 		<data>
@@ -1926,15 +1930,15 @@
 		</data>
 		<key>app/services/settings.service.js</key>
 		<data>
-		oYtAmLXwzaDmW9sQhwdV+ofVUGI=
+		soRJbosp7xWAuncF1oV+ruyzEzc=
 		</data>
 		<key>app/services/settings.service.js.map</key>
 		<data>
-		VelSPjU/ij/j1iT6l2ePA9PjP50=
+		qpLEop6cKiUPCqIg0F6skAAd1Fk=
 		</data>
 		<key>app/services/settings.service.ts</key>
 		<data>
-		O5V0jUDKX2vNzm7l/sqs0H5KlS0=
+		yEjxCXWCJq2VtJGXQDLLCOnXpcs=
 		</data>
 		<key>app/services/user.service.js</key>
 		<data>
@@ -22740,11 +22744,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			I3b65iXJlo/2MWVcMEJCedsXIt8=
+			x4hta1Fl/P8KG/GBD87j/zjf6iE=
 			</data>
 			<key>hash2</key>
 			<data>
-			EYlIbhH9tUPTZ6V8Ufu2A/O3jEAld1LGVtJls1FWK1s=
+			DHcJG707ihAuxM3Lm3enGoxzGdzlrf7TXiTwNDEbnpA=
 			</data>
 		</dict>
 		<key>app/App_Resources/iOS/LaunchScreen.storyboard</key>
@@ -22773,44 +22777,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7ZIibS9/yexC+CvXinK8CnN/hxQ=
+			w+PB3nu7ORQAV9UzK+CCGU1LM/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			iHSO4Tk+AEeAul3VuEwZ2VrPIdxGf30+mWhd3q0xRDs=
+			JtepCu90QV+ivzSdEqMmIWDWwVreCJQBm9lSfNSDszY=
 			</data>
 		</dict>
 		<key>app/account/login.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			s3obbh/iuFYE03sEMruoV3025l0=
+			IkbYCLqRX907U2XPYd3LdJejVAM=
 			</data>
 			<key>hash2</key>
 			<data>
-			DwJ888VHLsGrBMxWcY/+VkqnqGu1chT0CiYSp8oq6oM=
+			9hLceZHf0nAQpoV2miqwrdYRcMO39ohZgGibQjIMmMo=
 			</data>
 		</dict>
 		<key>app/account/login.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pJ0oitbQiX6cHgQay4fP7e55puQ=
+			NTSW/vX5XnQWFwqv3vO81bzeZ6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			uOGx7a9MV/+watbOHwAWRO309BOb87v5sRGLpfYII7s=
+			dPnqIZUHZP1mNMMfQp0eZMZu/W+D2pWs8rXZsOh5FjY=
 			</data>
 		</dict>
 		<key>app/account/login.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			svco+IZLTMz+CjHh362yUMBkQlI=
+			ERWu7p5xXUfuiGOqOX0Q6MC/hQ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			C2o924hlPeWcd7uwnnGUFJdIRCZh2RuwYtRCmUjhQkg=
+			hwug+DUkF+UTdNCXZy858eSY/h41NfTVajb5VtLPYis=
 			</data>
 		</dict>
 		<key>app/app.component.js</key>
@@ -22850,11 +22854,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BUoxqR4A1n4X5ktEcQnQCZF2w00=
+			bLc2wTs+5wtI7OG3EKMnly+AB/g=
 			</data>
 			<key>hash2</key>
 			<data>
-			9SlaIF74wsw+/o5tHtNdIyhVLuYWirV2Kp4qwe7Hpvs=
+			+q19yFgIWOc4nn8lqWg2f8srJxh2ifJeQ6WAcrp4Zyw=
 			</data>
 		</dict>
 		<key>app/app.routes.js</key>
@@ -25435,44 +25439,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MbPiZjhfFKp7+5d+OkBb4WMr5No=
+			PKiJueaCOWAxcOcawIY9DVFHM40=
 			</data>
 			<key>hash2</key>
 			<data>
-			YIN85ldjEMwsR1AalXgKqfCGrBbBsq8qZrWTsXuVU2o=
+			YE0FggQ+oqPlR+eAVUfEqDwkRUWnyRTrsh1sTz2PXCg=
 			</data>
 		</dict>
 		<key>app/injuryReport/additional-questions.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KOxyaiXWyiGkDbYoXrBV7oj2r5Q=
+			LbrFtoCJP5oOr6sJF16B61V0mu4=
 			</data>
 			<key>hash2</key>
 			<data>
-			7ffmx0rEp0tTSj+nMDbq3xE227Kl+aAxNNLgyyJgwrE=
+			FH98rTWjc7v0Vl4f+NUZWNT31PqAEBNHKa48USL8bWA=
 			</data>
 		</dict>
 		<key>app/injuryReport/additional-questions.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			M3MjKoP/PR8iA906ai/ihUIT51g=
+			eKhigV2dQY21GErIox48hnYHEWg=
 			</data>
 			<key>hash2</key>
 			<data>
-			W/Wfj6Wt67mTiiLeTARAAxo1u5/Of9xXrZUir8sLcE8=
+			2oth+bB6ZppDFfFHW6FXyRTzztUOBzd178TeTayPAzg=
 			</data>
 		</dict>
 		<key>app/injuryReport/additional-questions.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UnoLKHUEE+8Fj7jpxGwqYCdZKs0=
+			LGj75wkFWv0Kr+Mvxf3bRDx/SeM=
 			</data>
 			<key>hash2</key>
 			<data>
-			nAbNwaKjXe+TGtzIk0hBcPqXIoafqP1YtxPHXouVT7E=
+			N5bWV3da6Rze/pNArjtPoHVsReB4zEqHSS26fYkpUpw=
 			</data>
 		</dict>
 		<key>app/injuryReport/additional-questions.js</key>
@@ -25501,44 +25505,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sKL1Hd3nu0Hw4YXwZzXklOVhZN0=
+			IpEEzUcJyusgQsjqgMnY4fIS4I0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Rq1M1KSaLSq8PB4r4hWWRtWZ/1Lmh3XVZulkhZSQKoM=
+			4SvFET2dQ8ToIJzknZFeuailHDd+IhJJfqAAAynmKbs=
 			</data>
 		</dict>
 		<key>app/injuryReport/body-part-picker.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fd3jDJi2+6pZ/Zo3XzWIU9LZzlc=
+			k3jBoYG8YQv034HGh5Q1dXJEBu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			YmDszKXya+RObe4rv1K8+N5z18lB3+ISlFO6ZVRSMVU=
+			pQ67aoMxCfxB7Dy3PinTXzw/qHUVYWVy3It635LoDGU=
 			</data>
 		</dict>
 		<key>app/injuryReport/body-part-picker.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m1q7ucAvUg6R7DxsUyp9VA9nyVM=
+			xssDEVEwLF7hI6EaLFTBKLv3WgM=
 			</data>
 			<key>hash2</key>
 			<data>
-			hJYGC/QPAq8cqJlqNf1Ep+z1QjI9CmRmQdxoZ6CY974=
+			STrPXSPZCpeDgqID6AXq5+NlNxOY/kos7JXZpQsbCPc=
 			</data>
 		</dict>
 		<key>app/injuryReport/body-part-picker.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nC8BcwoiVCPmh6iy83iDKhS0TtQ=
+			sJWpvhqAzR3hrQ0gtkymEFfKoW0=
 			</data>
 			<key>hash2</key>
 			<data>
-			t6lUgnlevY3afRnU9cs05lxZP+IsH0w3yzpr6JPD4ZQ=
+			QbFubEHyXzaclyKrGu5vR/ibaq67BcqUyuKlfmFnQXs=
 			</data>
 		</dict>
 		<key>app/injuryReport/confirmation-summary-redirect.component.js</key>
@@ -25567,44 +25571,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Lzq0g+kHFZDYfP+CjB1ZGu90y8k=
+			GeovoXS0UOy7EfsvVFlEBm5i9xY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Io2FfWzfphTCgAFlftROiAQw3kKwMS+2312EOGD/2EY=
+			8L7hrivizhDlyLXqysv/By8XEgCDpLjLZnpparFWjZw=
 			</data>
 		</dict>
 		<key>app/injuryReport/confirmation-summary.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6QD78mBDSmXoY3b1uT6wdz8iQBs=
+			8z3r+IW0DjOBq1wGJAfoReXy3bA=
 			</data>
 			<key>hash2</key>
 			<data>
-			3LN/Dcwj2VS2mhC8boTCNzoSk5ccq7KGRDIz17ycJsA=
+			EDeE4kwlhtDyQ+UQmlI1HM/xM6Vuidn+xkSkT4mXJO0=
 			</data>
 		</dict>
 		<key>app/injuryReport/confirmation-summary.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lkqQ5J8E3EqGoZ70+CWSem6qTRA=
+			AooEUh5lnq87XMTeFcjg4gAyd9Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			nEau52jIrcg8I2Q8fhslQzNJDmnZL1VeFnMU+NC6FzQ=
+			3+CjolokfG1aTpACkk0OIqGk6WZ1JB4/TEFHUz8CBVA=
 			</data>
 		</dict>
 		<key>app/injuryReport/confirmation-summary.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BEH7sySo8Hc7rZiCq9gqjaBjmxI=
+			xpOCEElcm7vkiRqkLkpRtIyJpSE=
 			</data>
 			<key>hash2</key>
 			<data>
-			ywAZaLBpv4+hiP0be37T9Hf6VCUym8lYequtFMmTEfo=
+			uK3XgRSm7ITlLtXttJYl/b1MmEUdDYKDsMdgQ7xiaOs=
 			</data>
 		</dict>
 		<key>app/injuryReport/incident-date-picker.component.html</key>
@@ -25655,264 +25659,275 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6V6AFJwsT2PvDgjz4fwefkZYYpY=
+			SV7YBlUJ+roTRKdS0xaN8axIh6g=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZJ8fwq+tnX74wci8mI8M2ykxWKGvUUduVPauMciqi9o=
+			FyQMUCzUTllkaRnT0iC01AIv/J9TpDfWQqHT5c67rl4=
 			</data>
 		</dict>
 		<key>app/injuryReport/injured-employee.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			twF5VMbcjPm70pebmR82Ro8ms6A=
+			NXGyVj0wd+VbTkTF1QkwsOkKqMc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0RrrMTg6cY1VP9QfBs9X8Z7aT902BEa6DE3n81RUtcs=
+			elZzcf99Z5EnN0gsvl1F10XGW7FXsKNqzFvYnzaX1pw=
 			</data>
 		</dict>
 		<key>app/injuryReport/injured-employee.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			x9CnN3hWbj3RuA+SHeSL1y1/ic0=
+			nYkBak4WXewvvqBBGci2vb5BbUQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			1Bs4AJ4++j2qj0717DtOUmJc96X5XgIv4gJr94ko4A8=
+			WyBmy9ZIWuu6FSMXX/4Myz9J9UJqm989eo22O/skXrc=
 			</data>
 		</dict>
 		<key>app/injuryReport/injured-employee.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4RJyU/jtCtiRrPtvB6n/OkktVu8=
+			duZ7LjRYtPs1gkULrLWXt3Dwll0=
 			</data>
 			<key>hash2</key>
 			<data>
-			qyXqdKauzTul0W5FSom/0dggnTviKLXp1uJcWeZ/4ck=
+			RkMBIUeEElL109Aex4U+YOAhV8VyuYuYAT8EL9mNJL4=
 			</data>
 		</dict>
 		<key>app/injuryReport/injury-reports.component.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EoNVHeY5ufvp3K/kI0JA2ApnKVs=
+			fn2EY7yUJzKKX0BIRZQcFVIZMVM=
 			</data>
 			<key>hash2</key>
 			<data>
-			iXzYa1w8lNG5RuwOosQAz+hwZF1KhQwdliRqJQ07tvA=
+			4AcsIJ18AXx9H7lOFuvwPCe2IyFSzpme2vAAej8O+mU=
 			</data>
 		</dict>
 		<key>app/injuryReport/injury-reports.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d7b/aedaiXrqyt1GY1dkNQb5mIc=
+			ry5/zVxzj9R16scvAWM7X6U7Fi8=
 			</data>
 			<key>hash2</key>
 			<data>
-			kXI5tVHBTZEaEUHPAAA/KV0y5xw5hp0Ae8iRrW6DAcc=
+			7qTcyG9zIVzzAYEgFDCgx0j8c4W339ezIlsastzeX60=
 			</data>
 		</dict>
 		<key>app/injuryReport/injury-reports.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tSlEWxHl+PBzpCFoc/QJwQB2k2k=
+			FJlN+Mlu+8FDy8InYDHMWHtusSM=
 			</data>
 			<key>hash2</key>
 			<data>
-			WxbtjR/RY7F2+PcpeaDj2VG5QSLG6S/Nac0AFx8LjWs=
+			knwix8aeAED/SIJt9gK4kwJcs+5v+Zoic+u9zQon8WI=
 			</data>
 		</dict>
 		<key>app/injuryReport/injury-reports.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5SRK2arwi+O0KABSFAas6Hs7q9o=
+			VAg8gW2Ox080sR/GVpHgjPN4M4I=
 			</data>
 			<key>hash2</key>
 			<data>
-			rL+jIrL1+90rWbP45g00aiMZuAnZZcolOMhDfuN2c3w=
+			XYYlMxSpqko92gFgxfYemXHBnBV5zFKd/O3QiTN34JY=
 			</data>
 		</dict>
 		<key>app/injuryReport/picture-detail.component.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5tIitOeOyp6WmYo8FAsjxUrnldw=
+			M9iNSvdGgK7WEjzO0dgY7MUPCF0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tnk6Ufac8x+mcunvwAa0hdgvvOk8CB4KTu4FuJRoQLo=
+			masPMYWin2laFYO9ciZLcw5rATLN+034ietwe8Pe5oE=
 			</data>
 		</dict>
 		<key>app/injuryReport/picture-detail.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sgCp50I401QBGjoM17r0LKGLDkU=
+			FRX5Mluf4AmnVGXyO0mDeGb7CNs=
 			</data>
 			<key>hash2</key>
 			<data>
-			h5B0ghF+3rJVidrTgrT4XrHMww+OPLljHtoMQmj+SAo=
+			VFv7HqCZeFAMPXGHpr9EbAZOXjC6JoAd/dHz2eoGn7o=
 			</data>
 		</dict>
 		<key>app/injuryReport/picture-detail.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7lq/CjC9kmTAh9ZT/ffFGqG9eaM=
+			EtILATWCt8OoO6S0T9RX9NYkxJ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			1o9uLljxy3E55CmxI/MabcvAuoFHApVCC0OU6HuXjGU=
+			3hwClB7fmpluyPLj30HF2SMVgxYaQ0u4ArpJBhFgIHA=
 			</data>
 		</dict>
 		<key>app/injuryReport/picture-detail.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xDhGlsVaBdcttH4Gg2Z0oWFKXx4=
+			HJXJN0m5fLFtMoYj4+W0ntaBzy4=
 			</data>
 			<key>hash2</key>
 			<data>
-			1kB/KHGdZhzbIE47wTiR40Iy8XHda/Wg4ibQhWO0Dzc=
+			vBZocMotjoVq1a58MmMMBADqH0w1P3EAOScFaagVv3E=
 			</data>
 		</dict>
 		<key>app/injuryReport/search-employees.component.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6SOLM1kKlDQMLDn6KDye3k1gfiA=
+			c6fauoikaedV0MjiJ1hG2uyWw+0=
 			</data>
 			<key>hash2</key>
 			<data>
-			h1Hn839JpfLgLnFE/V3F4WF7a7aPUxGrU6dmiGKvymc=
+			jmC0HMPru2kvogfSg86OA2HaQ6EAs6bbfLodOi5UYlg=
 			</data>
 		</dict>
 		<key>app/injuryReport/search-employees.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yVwxGx/8ZfIITnYBDVaX8VL8gPE=
+			L43b/3P7DEi2igUtb9IQU8f7kMw=
 			</data>
 			<key>hash2</key>
 			<data>
-			S1U9aZKSg+6lXtG3ml2XLEo0Xqcv6W6iwRzghc/amds=
+			Ob4HCS0OCXGdH1A+pni5vbImyOzRQYZz9SWAIsyGIn8=
 			</data>
 		</dict>
 		<key>app/injuryReport/search-employees.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6bU7wo2V+u0U4+RE24HustFZ4Xk=
+			SlK+OV2CamOaXx4hUpCJZoS2xQY=
 			</data>
 			<key>hash2</key>
 			<data>
-			A7HTcAC0nQ6VQThgaPaQavne4voZpHA3UXBH6A7YFoI=
+			uMLQJMfvx+PHnPZ4lx0hYXd89SbS7ix63nb+j5ey13g=
 			</data>
 		</dict>
 		<key>app/injuryReport/search-employees.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cxcH7YvVkp/TmetAePTJKA+89tg=
+			PuOxxmWzMf+rrfcnD1pR8UB/fes=
 			</data>
 			<key>hash2</key>
 			<data>
-			NePzKd2mhVigY2SFmIK6Hifp98SPl6TRP00iWKrTcdQ=
+			4YO7SiKbQgS77FKmN111kVn5V4aKXDajfHaRJz3Azvc=
 			</data>
 		</dict>
 		<key>app/injuryReport/select-injury-type.component.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rPLTb3vTBnN05YjBPSqlguaeQxI=
+			EIGocSYogbNOh82uf/bdhKvgPoM=
 			</data>
 			<key>hash2</key>
 			<data>
-			eyiz+v3q+TSZfovPpC/vJmLbdx5nwjdr+Wtqq4u8dUE=
+			G6Xsr19h8T5TBFL8g726iwj9sSy4+/uNh3+WQEvcPsA=
 			</data>
 		</dict>
 		<key>app/injuryReport/select-injury-type.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZTlxjFuWbEsb85TmfPjsMuW6Ru8=
+			tV2zahKQq3mnf818rJFYYA21+LI=
 			</data>
 			<key>hash2</key>
 			<data>
-			BERKzN1bgmaitxM4tMGxGXhfjlHg6//pnJt/Dh3MTfU=
+			z1pDnvsRMJAKVaRc+xUShEJtSl287iwUxc+I2mDcVIs=
 			</data>
 		</dict>
 		<key>app/injuryReport/select-injury-type.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SNT6MyYRI2fvcxlebUqvQRQfTL0=
+			/mm5uERBddZg8SIrVDuOsUzchKk=
 			</data>
 			<key>hash2</key>
 			<data>
-			LN9DM3h2Izm4a4f8mmkT82bChMpzoesoKvSU26u+VhU=
+			hTSy7jTeya4Vckp3tWJOsIGS5xQZQVEvhkQUX10O40M=
 			</data>
 		</dict>
 		<key>app/injuryReport/select-injury-type.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gjaTdKXM5+qfBNjjqL+aMm7n96g=
+			nz7bhcxHq1IaPhQkzVdQ9l9itp8=
 			</data>
 			<key>hash2</key>
 			<data>
-			/9mCsV3Xk/1/ykrdDWh9PgQiWwQa3zzAUDFJIE3B9ec=
+			kIHME0WY87qfeFmHyYrGuehRjhHF8475tAKHR45L+q0=
 			</data>
 		</dict>
 		<key>app/injuryReport/take-a-picture.component.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nUjJJkQxzcFIUYQxwtAINJi1fvQ=
+			x/XOozkfKYDMPT/6PagZjP32M/s=
 			</data>
 			<key>hash2</key>
 			<data>
-			OZzlZqTSy2T9qg3HEABfcNU0w4tHyrPTJOL5+ZrctsQ=
+			mfJJOUvs4RgvMr4BNvLmbkN+Ip18ebSxjhY4a+otKQY=
 			</data>
 		</dict>
 		<key>app/injuryReport/take-a-picture.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Efhlhauv9kd78sdb2ZaUvHsZojA=
+			K24u7ELF4gP6T8UhXHwKIQPNyFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			3OWilLhR0D2Rh1wBm5UOOrNCWwCzVZWqiEDPRCVPnsk=
+			iVJ9IawXU0qk+wpjIgexCZozcD8ybPVqG18j6L5rSos=
 			</data>
 		</dict>
 		<key>app/injuryReport/take-a-picture.component.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LKqDgltevawNswMTAxCwDI2jKdA=
+			+86K/XVS0DtZk0xc8nvF6FuXOZU=
 			</data>
 			<key>hash2</key>
 			<data>
-			XGSh1g7rtreOIU2pSFLTYyI/TBK9KXGjERdbnOdQdzw=
+			lmFEmmqpBSbXvpITyit36XfgOfu+ALn/PG17xepdIGQ=
 			</data>
 		</dict>
 		<key>app/injuryReport/take-a-picture.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YvEyQ+4Zdfp2Cxd1VFycLvirCmc=
+			BZjlTGhEbGjIYd1h4o4TXeUXkbQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			oj3UDB7KKsN2ZZTzpunSlnDWdezjfmnz4VosPVRT5ts=
+			cTPma5TS4MeRQz8N/OEM5hqW4GrDwM4vIlpCeiA49Mg=
+			</data>
+		</dict>
+		<key>app/injuryReport/test.txt</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4+r2j4z4kYOqZX99FF9QJdLDbaw=
+			</data>
+			<key>hash2</key>
+			<data>
+			xj3mHwY3k29n1NLtL5hS9Lw3zHbV3wBimwyLBC8UJh0=
 			</data>
 		</dict>
 		<key>app/injuryReport/thank-you.component.html</key>
@@ -26447,11 +26462,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/k3W/ZAtKR+Iyomj+S9SlI27o+A=
+			TyNydn/lI3FUjywXiraIywdHWOQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			i0vLjUWPCNlYM2GuLpfxpMq7j31Ns8DkrwLGBfuo3a0=
+			1mVxYKt6BXJMxxU6Pp3pApwgjzQ4Yr9HPZSyQyUgN90=
 			</data>
 		</dict>
 		<key>app/models/role.model.js</key>
@@ -26667,33 +26682,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			21UKeubdANpOnHswHAITPHDkwgE=
+			RXyHBcVywx4ox38O96VbzNRHfno=
 			</data>
 			<key>hash2</key>
 			<data>
-			vBqImABuMBaSh2h/+dpq3REGD62T8FniJvjEZavqtFw=
+			ks36LKbgk2px/kXmAoMLdr3Sct8N5FlhHKMw68r7dBg=
 			</data>
 		</dict>
 		<key>app/services/session.service.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VtDDrh6DimsahUuYw/cr3UEYLWw=
+			Ow/7ywOMTO3DLhwzDMAjmmDaIsI=
 			</data>
 			<key>hash2</key>
 			<data>
-			YOYGAVhNAe2aFGjkNCdu7vu0L4GjwrzS99Tge1DP0WI=
+			vd6EyMepmn8IfvKg8wF9qkM2x/oydd1TWbJyU6WhDmo=
 			</data>
 		</dict>
 		<key>app/services/session.service.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7LGtQ2kwhWjwTHyFDKgFOjrSSvo=
+			Pt73L+t5AafKz4q60ku5QjRjSaQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			9JUsexU5H74HHa2bigH73Ywot0iXOC3Q8+3WAvJi//M=
+			dNW9KNc34od+19DWOUvhbkeZXGIXZYq41KrZS736hBs=
 			</data>
 		</dict>
 		<key>app/services/settings.js</key>
@@ -26722,33 +26737,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oYtAmLXwzaDmW9sQhwdV+ofVUGI=
+			soRJbosp7xWAuncF1oV+ruyzEzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			vHeyaYi/h1eg6eHj7StENRoKfenlJ+1FqoVmBoZjDpY=
+			WAKEaNUTJ6H5JBfzWTmpytEQg+D1Z77s6CYfLmVifI8=
 			</data>
 		</dict>
 		<key>app/services/settings.service.js.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VelSPjU/ij/j1iT6l2ePA9PjP50=
+			qpLEop6cKiUPCqIg0F6skAAd1Fk=
 			</data>
 			<key>hash2</key>
 			<data>
-			SjRXGPcu/Do4iY4nN3hJad5jMz5aESb1U4A/IeSL50o=
+			6T9Fo9mRT8x+Q+SmrL35r3PJrUE2sW26veW8bnc7BW4=
 			</data>
 		</dict>
 		<key>app/services/settings.service.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O5V0jUDKX2vNzm7l/sqs0H5KlS0=
+			yEjxCXWCJq2VtJGXQDLLCOnXpcs=
 			</data>
 			<key>hash2</key>
 			<data>
-			kq+lHa35PE3pFPjJUj1VEIrmQUHts6CZQzJVLOrZYHA=
+			BLuoQO1ExYjtqj+PDDROaq+tm3A0+utFKrtdc7Ituhk=
 			</data>
 		</dict>
 		<key>app/services/user.service.js</key>

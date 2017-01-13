@@ -1,9 +1,10 @@
 ﻿
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef} from "@angular/core";
 import { NS_ROUTER_DIRECTIVES, RouterExtensions } from 'nativescript-angular/router';
 import { User } from "../models/user.model";
 import { UserService } from "../services/user.service";
 import { SessionService } from "../services/session.service";
+
 import { InjuryReportService } from "../services/injuryreport.service";
 
 import { TransactionalInformation } from "../models/transactionalinformation.model";
@@ -13,6 +14,7 @@ import { Photo } from '../models/photo.model';
 import { Page } from "ui/page";
 
 import * as dialogs from "ui/dialogs";
+import * as application from "application";
 
 @Component({
     selector: "login",
@@ -21,16 +23,9 @@ import * as dialogs from "ui/dialogs";
     providers: []
 })
 
-
-/*
-<ListPicker #picker
-[items] = "transitions"
-[selectedIndex] = "selectedIndex"
-    (selectedIndexChange) = "selectedIndexChanged(picker)" >
-    </ListPicker>*/
-
 export class LoginComponent implements OnInit {
 
+    public padding: number;
     public emailAddress: string;
     public password: string;
     public hostName: string;
@@ -45,11 +40,14 @@ export class LoginComponent implements OnInit {
     private transitionList = ["fade", "flip", "slide"];
     public transitions: Array<string>;
 
+    @ViewChild("password") passwordElement: ElementRef;
 
     constructor(private page: Page, private _sessionService: SessionService, private _userService: UserService,
         private _injuryReportService: InjuryReportService,
         private _routerExtensions: RouterExtensions, private _settingsService: SettingsService) {
 
+        this.padding = this._settingsService.getPadding();
+        
         this.emailAddress = "mcaplin@patnat.com";
         this.password = "test";
         this.messageBox = "";
@@ -61,14 +59,35 @@ export class LoginComponent implements OnInit {
             this.transitions.push(this.transitionList[i]);
         }
 
+        //application.on(application.orientationChangedEvent, this.setOrientation);
+
 
     }
 
-    public ngOnInit() {
-        //this.page.backgroundImage = "~/images/main-image.jpg";
+           
+    public focusPassword() {
+        
+        dialogs.alert({
+                title: "focus password event.",
+                message: "focus",
+                okButtonText: "OK"
+            }).then(function () {
+
+            });    
+
+        this.passwordElement.nativeElement.focus();
+    }
+
+    public setOrientation(args) {
+        this.padding = this._settingsService.getPadding();        
+    }
+
+    public ngOnInit() {        
         this.page.className = "coverImage";
+    }
 
-
+    public ngOnDestroy() {
+       // application.off(application.orientationChangedEvent);
     }
 
     public selectedIndexChanged(picker) {

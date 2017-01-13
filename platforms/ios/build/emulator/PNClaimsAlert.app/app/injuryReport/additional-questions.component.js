@@ -31,6 +31,7 @@ var AdditionalQuestionsComponent = (function () {
         this.showEditButton = false;
         this.takingOwnership = false;
         this.showTakeOwnershipButton = false;
+        this.padding = _settingsService.getPadding();
         this._sessionService.console("Constructor start");
         this.viewHeight = platform_1.screen.mainScreen.heightDIPs;
         this.height = this.viewHeight - 145;
@@ -248,7 +249,7 @@ var AdditionalQuestionsComponent = (function () {
         if (this._sessionService.getIsDirty() == false) {
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -259,7 +260,7 @@ var AdditionalQuestionsComponent = (function () {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/confirmationsummary"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionSlideRight,
                         duration: this._settingsService.transitionDuration,
@@ -301,7 +302,7 @@ var AdditionalQuestionsComponent = (function () {
         this._sessionService.setIsDirty(false);
         if (this.buttonPressed == "back") {
             this._routerExtensions.navigate(["/injuryreport/takepicture"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,
@@ -312,7 +313,7 @@ var AdditionalQuestionsComponent = (function () {
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/confirmationsummary"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionSlideRight,
                     duration: this._settingsService.transitionDuration,
@@ -322,18 +323,12 @@ var AdditionalQuestionsComponent = (function () {
             return;
         }
         this.buttonPressed = "";
-        //this.clearValidationErrors();
-        //if (this.continueButtonPressed == true || this.backButtonPressed == true) {
-        //    this.alerts = [];
-        //    this.messageBox = "";
-        //}
-        //else {
-        //    this._alertService.renderSuccessMessage(response.returnMessage);
-        //    this.messageBox = this._alertService.returnFormattedMessage();
-        //    this.alerts = this._alertService.returnAlerts();
-        //}
-        //this.isDirty = false;
-        //this.injuryReportEvent.emit(true);
+        dialogs.alert({
+            title: "Saved",
+            message: "Information successfully saved.",
+            okButtonText: "OK"
+        }).then(function () {
+        });
     };
     AdditionalQuestionsComponent.prototype.saveInjuryInfoOnError = function (response) {
         this.showErrorMessage = true;
@@ -342,12 +337,12 @@ var AdditionalQuestionsComponent = (function () {
         for (var i = 0; i < response.returnMessage.length; i++) {
             this.errorMessage = this.errorMessage + response.returnMessage[i];
         }
-        //this.clearValidationErrors();
-        //this._alertService.renderErrorMessage(response.returnMessage);
-        //this.messageBox = this._alertService.returnFormattedMessage();
-        //this.alerts = this._alertService.returnAlerts();
-        //this._alertService.setValidationErrors(this, response.validationErrors);
-        //this.injuryReportEvent.emit(false);
+        dialogs.alert({
+            title: "Validation Error",
+            message: this.errorMessage,
+            okButtonText: "OK"
+        }).then(function () {
+        });
     };
     AdditionalQuestionsComponent.prototype.back = function () {
         var _this = this;

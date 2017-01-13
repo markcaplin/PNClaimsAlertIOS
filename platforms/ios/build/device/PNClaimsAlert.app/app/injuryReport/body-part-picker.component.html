@@ -4,8 +4,6 @@
                 ios.systemIcon="1" ios.position="right"
                 android.systemIcon="ic_menu_home"
                 android.position="actionBar"></ActionItem>
-
-    <NavigationButton text="" tap="back()"></NavigationButton>
                 
 </ActionBar>
 
@@ -27,22 +25,18 @@
             </SegmentedBar>
         </GridLayout>
 
-        <label style="text-align:center; padding-bottom: 2; padding-top: 5; font: bold;" text="Injured Areas - Press and hold area to select"></label>
+        <label style="text-align:center; padding-bottom: 2; padding-top: 5; font: bold;" text="Injured Areas - Tap on area to select/deselect"></label>
         <label style="text-align:center; padding: 2" [text]="injuredAreas" textWrap="true"></label>
            
     </StackLayout>
 
-    <StackLayout>
-        <ActivityIndicator style="text-align:center;" busy="{{isBusy}}"></ActivityIndicator>
-    </StackLayout>
-
     <ScrollView dock="bottom" style="height:{{height}}"  (pinch)="onPinch($event)">
-
-        <StackLayout>
-            <ActivityIndicator busy="{{isBusy}}"></ActivityIndicator>
-        </StackLayout>
-
+   
         <StackLayout orientation="vertical">
+
+             <StackLayout style="text-align:center;padding-left:100; padding-right:100; padding-top:10">
+                <ActivityIndicator busy="{{isBusy}}"></ActivityIndicator>
+            </StackLayout>
 
             <GridLayout columns="*,*,*,*,*,*,*,*" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" horizontalAlignment="center" *ngIf="showFrontBody">
 

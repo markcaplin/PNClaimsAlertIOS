@@ -30,6 +30,7 @@ var SearchEmployeesComponent = (function () {
         this.totalRecordsMessage = "";
         this.viewHeight = platform_1.screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 160;
+        this.padding = this._settingsService.getPadding();
         //application.on(application.orientationChangedEvent, this.setOrientation);
     }
     SearchEmployeesComponent.prototype.ngAfterViewInit = function () {
@@ -153,7 +154,7 @@ var SearchEmployeesComponent = (function () {
     };
     SearchEmployeesComponent.prototype.back = function () {
         this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

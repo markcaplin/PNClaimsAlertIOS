@@ -26,6 +26,9 @@ var InjuredEmployeeComponent = (function () {
         this.showEditButton = false;
         this.showTakeOwnershipButton = false;
         this.takingOwnership = false;
+        this.datePickerHeight = 0;
+        this.padding = this._settingsService.getPadding();
+        this.datePickerHeight = 0;
         this.selectedInjuryReportIDStr = this._sessionService.getSelectedIncidentReportString();
         this.user = _sessionService.getUser();
         this._sessionService.console("dirty=" + this._sessionService.getIsDirty());
@@ -69,6 +72,10 @@ var InjuredEmployeeComponent = (function () {
                 .subscribe(function (search) { return _this.getInjuryReportOnSuccess(search); }, function (error) { return _this.getInjuryReportOnError(error); });
         }
     }
+    InjuredEmployeeComponent.prototype.ngAfterViewInit = function () {
+        this.datePickerControl = this.datePicker.nativeElement;
+        this.datePickerHeight = 0;
+    };
     InjuredEmployeeComponent.prototype.edit = function () {
         this.isReadOnly = false;
         this.showEditButton = false;
@@ -80,6 +87,16 @@ var InjuredEmployeeComponent = (function () {
         this.dateOfIncident = this._helperService.formatDate(this.injuryReport.dateOfIncident);
         var dateOfBirth = this._helperService.convertJsonDateToJavaScriptDate(this.injuredEmployee.dateOfBirth);
         this.dateOfBirth = this._helperService.formatDate(dateOfBirth);
+        this._sessionService.console("incident date = " + this.injuryReport.dateOfIncident);
+        var dateOfIncident = this._helperService.formatDate(this.injuryReport.dateOfIncident);
+        this._sessionService.console(dateOfIncident);
+        var newDate = new Date(dateOfIncident);
+        this._sessionService.console("javascript incident date = " + newDate);
+        if (this.datePicker == undefined) {
+            return;
+        }
+        this.datePickerControl.date = newDate;
+        this.datePickerHeight = 0;
     };
     InjuredEmployeeComponent.prototype.getInjuryReportOnSuccess = function (injuryReport) {
         this.injuredEmployee = injuryReport.injuredEmployee;
@@ -132,15 +149,51 @@ var InjuredEmployeeComponent = (function () {
             });
         }, 100);
     };
-    InjuredEmployeeComponent.prototype.datePicker = function () {
-        this._routerExtensions.navigate(["/injuryreport/datepicker"], {
-            clearHistory: false,
-            transition: {
-                name: this._settingsService.transitionName,
-                duration: this._settingsService.transitionDuration,
-                curve: this._settingsService.transitionCurve
+    InjuredEmployeeComponent.prototype.toggleDatePicker = function () {
+        if (this.datePickerHeight == 125) {
+            this.datePickerHeight = 0;
+        }
+        else {
+            this.datePickerHeight = 125;
+            this._sessionService.console("incident date = " + this.injuryReport.dateOfIncident);
+            var dateOfIncident = this._helperService.formatDate(this.injuryReport.dateOfIncident);
+            this._sessionService.console(dateOfIncident);
+            var newDate = new Date(dateOfIncident);
+            this._sessionService.console("javascript incident date = " + newDate);
+            this.datePickerControl.date = newDate;
+        }
+        // this._routerExtensions.navigate(["/injuryreport/datepicker"], {
+        //     clearHistory: false,
+        //     transition: {
+        //         name: this._settingsService.transitionName,
+        //         duration: this._settingsService.transitionDuration,
+        //         curve: this._settingsService.transitionCurve
+        //     }
+        // });
+    };
+    InjuredEmployeeComponent.prototype.dateChanged = function (property, oldValue, newValue) {
+        var _this = this;
+        var currentDate = this.datePickerControl.date;
+        setTimeout(function () {
+            if (currentDate == _this.datePickerControl.date) {
+                return;
             }
-        });
+            var today = new Date();
+            if (_this.datePickerControl.date > today) {
+                var dateOfIncident = _this._helperService.formatDate(_this.datePickerControl.date);
+                dialogs.alert({
+                    title: "Invalid Incident Date.",
+                    message: "Reported incident date of " + dateOfIncident + " cannot be in the future",
+                    okButtonText: "OK"
+                }).then(function () {
+                });
+                _this.datePickerControl.date = currentDate;
+                return;
+            }
+            _this.injuryReport.dateOfIncident = _this.datePickerControl.date;
+            _this._sessionService.setIsDirty(true);
+            _this.dateOfIncident = _this._helperService.formatDate(_this.injuryReport.dateOfIncident);
+        }, 100);
     };
     InjuredEmployeeComponent.prototype.forward = function () {
         var _this = this;
@@ -153,7 +206,7 @@ var InjuredEmployeeComponent = (function () {
             _this.injuryReport = _this._sessionService.getInjuryReport();
             if (_this.isReadOnly == true) {
                 _this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: _this._settingsService.transitionName,
                         duration: _this._settingsService.transitionDuration,
@@ -168,7 +221,7 @@ var InjuredEmployeeComponent = (function () {
             }
             else {
                 _this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: _this._settingsService.transitionName,
                         duration: _this._settingsService.transitionDuration,
@@ -195,8 +248,12 @@ var InjuredEmployeeComponent = (function () {
         this._sessionService.console("duplicate Injury Report On Success");
         if (response.duplicateInjuryReport) {
             this.isBusy = false;
-            this.showErrorMessage = true;
             this.messageBox = "An injury already exists for the same user and incident date";
+            dialogs.alert({
+                title: "Validation Error",
+                message: this.messageBox,
+                okButtonText: "OK"
+            }).then(function () { });
         }
         else {
             this.continueWithSave();
@@ -234,7 +291,7 @@ var InjuredEmployeeComponent = (function () {
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                clearHistory: false,
+                clearHistory: true,
                 transition: {
                     name: this._settingsService.transitionName,
                     duration: this._settingsService.transitionDuration,
@@ -251,6 +308,12 @@ var InjuredEmployeeComponent = (function () {
             }
             this.buttonPressed = "";
             this._sessionService.console("success=" + this.injuryReport.injuryReportID);
+            dialogs.alert({
+                title: "Saved.",
+                message: "Information successfully saved",
+                okButtonText: "OK"
+            }).then(function () {
+            });
         }
     };
     InjuredEmployeeComponent.prototype.saveInjuredEmployeeOnError = function (error) {
@@ -262,7 +325,11 @@ var InjuredEmployeeComponent = (function () {
                 this.messageBox = error.returnMessage[0];
             }
         }
-        this.showErrorMessage = true;
+        dialogs.alert({
+            title: "Validation Error",
+            message: this.messageBox,
+            okButtonText: "OK"
+        }).then(function () { });
         this._sessionService.console("error " + this.messageBox);
     };
     InjuredEmployeeComponent.prototype.searchForEmployee = function () {
@@ -315,6 +382,10 @@ var InjuredEmployeeComponent = (function () {
             }
         });
     };
+    __decorate([
+        core_1.ViewChild('dp'), 
+        __metadata('design:type', core_1.ElementRef)
+    ], InjuredEmployeeComponent.prototype, "datePicker", void 0);
     InjuredEmployeeComponent = __decorate([
         core_1.Component({
             selector: "injured-employee",

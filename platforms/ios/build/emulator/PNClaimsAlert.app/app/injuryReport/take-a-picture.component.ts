@@ -56,12 +56,15 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
     public showEditButton: Boolean = false;
     public showTakeOwnershipButton: Boolean = false;
     public takingOwnership: Boolean = false;
+    public padding: Number;
 
     public constructor(private ngZone: NgZone, private page: Page, private _sessionService: SessionService,
         private _injuryReportService: InjuryReportService,
         private _userService: UserService, private _routerExtensions: RouterExtensions, private _settingsService: SettingsService,
         private _helperService: HelperService)
     {
+
+        this.padding = _settingsService.getPadding();
 
         this.viewHeight = screen.mainScreen.heightDIPs;
         this.scrollHeight = this.viewHeight - 200;
@@ -211,22 +214,35 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
             camera.takePicture({ width: 150, height: 150, saveToGallery: false, keepAspectRatio: true }).then(picture => {    
 
-                var documents = fs.knownFolders.documents();
-                var path = fs.path.join(documents.path, "test.mov");
-                var file = fs.File.fromPath(path);
+                //var documents = fs.knownFolders.documents();
+                //var path = fs.path.join(documents.path, "test.mov");
+                //var file = fs.File.fromPath(path);
 
                 // Writing text to the file.
-                file.writeSync(picture);
-        
-                dialogs.confirm({
-                       title: "Test",
-                       message: path,
-                       okButtonText: "Test",
-                       cancelButtonText: "Cancel"
-                }).then(result => {
-                                                            
-                    
-                });
+                //file.writeSync(picture);
+                
+                //var file2 = fs.File.fromPath(path);
+                //let dateModified: Date = file2.lastModified;
+                        
+                //dialogs.confirm({
+                //       title: "Test",
+                //       message: dateModified.toLocaleDateString(),
+                //       okButtonText: "Test",
+                //       cancelButtonText: "Cancel"
+                //}).then(result => {
+                //                                            
+                //    
+                //});
+
+                //dialogs.confirm({
+                //       title: "Pre Test 1",
+                //       message: "Pre Test 1",
+                //       okButtonText: "pre Test 1",
+                //       cancelButtonText: "Cancel"
+                //}).then(result => {
+               //                                             
+               //     
+               // });
 
                 this.capturePhoto(picture);
 
@@ -243,6 +259,16 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
     private capturePhoto(capturePhoto: any) {
         
+       //dialogs.confirm({
+       //                title: "Test 1",
+       //                message: "Test 1",
+       //                okButtonText: "Test 1",
+       //                cancelButtonText: "Cancel"
+       //         }).then(result => {
+       //                                                     
+       //             
+       //         });
+
         var image = new imageModule.Image();
         image.imageSource = capturePhoto;
 
@@ -255,11 +281,11 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
         let photo = new Photo();
         photo.fileName = "image_" + stringDate + ".jpg";
-
+        
         photo.image = image;
         photo.documentIDStr = null;
         this.photos.push(photo);
-
+    
         this.listViewControl.refresh();
 
     }
@@ -402,7 +428,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
             if (this.buttonPressed == "back") {
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -416,7 +442,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
             }
             else if (this.buttonPressed == "forward") {
                 this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -430,6 +456,17 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
             this._sessionService.setIsDirty(false);
             this._sessionService.console("done");
+
+            dialogs.alert({
+
+                title: "Saved",
+                message: "Information successfully saved.",
+                okButtonText: "OK"                        
+
+            }).then(function () {                        
+                                                 
+            });      
+
             return;
         }
 
@@ -467,7 +504,6 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
 
     public uploadDocumentOnError(response: TransactionalInformation) {
 
-
         this.isBusy = true;
 
         this._routerExtensions.navigate(["/account/login"], {
@@ -478,7 +514,6 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
                 curve: this._settingsService.transitionCurve
             }
         });
-
 
     }
 
@@ -513,7 +548,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
             if (this.isReadOnly == true) {
 
                 this._routerExtensions.navigate(["/injuryreport/bodypartpicker"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,
@@ -541,7 +576,7 @@ export class TakePictureComponent implements OnInit, AfterViewInit {
             if (this.isReadOnly == true) {
 
                 this._routerExtensions.navigate(["/injuryreport/additionalquestions"], {
-                    clearHistory: false,
+                    clearHistory: true,
                     transition: {
                         name: this._settingsService.transitionName,
                         duration: this._settingsService.transitionDuration,

@@ -195,7 +195,7 @@ export class InjuryReportsComponent implements OnInit, AfterViewInit {
         this._sessionService.savePhotos(newPhotos);  
      
         this._routerExtensions.navigate(["/injuryreport/injuredemployee"], {
-            clearHistory: false,
+            clearHistory: true,
             transition: {
                 name: this._settingsService.transitionSlideRight,
                 duration: this._settingsService.transitionDuration,

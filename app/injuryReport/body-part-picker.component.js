@@ -419,8 +419,10 @@ var BodyPartPickerComponent = (function () {
             }
             return;
         }
+        if (this.buttonPressed == "back" || this.buttonPressed == "forward") {
+            this.isBusy = true;
+        }
         this._sessionService.console("save start");
-        this.isBusy = true;
         this.injuryReport.bodyParts = this.bodyParts;
         this._sessionService.setInjuryReport(this.injuryReport);
         this._sessionService.console("body parts = " + this.bodyParts.length);
@@ -475,6 +477,7 @@ var BodyPartPickerComponent = (function () {
                     curve: this._settingsService.transitionCurve
                 }
             });
+            return;
         }
         else if (this.buttonPressed == "forward") {
             this._routerExtensions.navigate(["/injuryreport/takepicture"], {
@@ -485,9 +488,11 @@ var BodyPartPickerComponent = (function () {
                     curve: this._settingsService.transitionCurve
                 }
             });
+            return;
         }
         this.buttonPressed = "";
         this.isDirty = false;
+        this.isBusy = false;
         dialogs.alert({
             title: "Saved",
             message: "Information successfully saved.",

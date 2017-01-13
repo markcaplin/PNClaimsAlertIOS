@@ -20,7 +20,13 @@ export class SettingsService {
 
     public getPadding(): number {
         let viewWidth = screen.mainScreen.widthDIPs;
-        let padding: number = viewWidth * .10;
+        let padding: number = 0;
+        if (viewWidth<400) {
+            padding = viewWidth * .01; 
+        }
+        else {
+            padding = viewWidth * .10;                 
+        }
         return padding;
     }
 
